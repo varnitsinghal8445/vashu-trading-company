@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1a1a1a;
+  --color-secondary: #cba258; /* elegant gold/champagne */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fafafa;
+  color: #1a1a1a;
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(5%, 10%) scale(1.1) rotate(5deg); }
+}
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-5%, -10%) scale(1.2) rotate(-5deg); }
+}
+@keyframes scroll-y {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  25% { opacity: 0.8; }
+  50% { transform: translateY(-20px) translateX(10px); }
+  75% { opacity: 0.8; }
+}
+@keyframes beamTravel {
+  0% { top: -5%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 105%; opacity: 0; }
+}
+@keyframes drawPath {
+  0% { stroke-dashoffset: 2000; opacity: 0; }
+  10% { opacity: 1; }
+  90% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.animate-scroll-y {
+  animation: scroll-y 40s linear infinite;
+}
+.animate-float-1 {
+  animation: float-1 15s ease-in-out infinite;
+}
+.animate-float-2 {
+  animation: float-2 20s ease-in-out infinite;
+}
+.animate-shine {
+  animation: shine 4s linear infinite;
+  background-size: 200% auto;
+}
+.animate-particle {
+  animation: particleFloat 8s ease-in-out infinite;
+}
+.animate-beam {
+  animation: beamTravel 8s linear infinite;
+}
+.animate-draw {
+  animation: drawPath 10s ease-in-out infinite;
+}
