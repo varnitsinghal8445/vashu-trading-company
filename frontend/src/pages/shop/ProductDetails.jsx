@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ShoppingCart, Upload } from 'lucide-react';
+import { ShoppingCart, Upload, MessageCircle } from 'lucide-react';
 import PageWrapper from '../../components/layout/PageWrapper';
+import WhatsAppOrderModal from '../../components/shop/WhatsAppOrderModal';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -22,9 +23,10 @@ const ProductDetails = () => {
   const [selectedCover, setSelectedCover] = useState(product.covers[0]);
   const [qty, setQty] = useState(1);
   const [price, setPrice] = useState(product.basePrice);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleAddToCart = () => {
-    alert(`Added to cart: ${qty}x ${product.name} (${selectedSize}, ${selectedCover}) - ₹${price * qty}`);
+  const handleEnquireClick = () => {
+    setIsModalOpen(true);
   };
 
   return (
@@ -97,15 +99,23 @@ const ProductDetails = () => {
               </div>
               
               <button 
-                onClick={handleAddToCart}
-                className="flex-1 bg-primary text-white px-8 py-4 uppercase tracking-widest text-sm font-medium hover:bg-secondary transition-colors flex items-center justify-center gap-3"
+                onClick={handleEnquireClick}
+                className="flex-1 bg-primary text-white px-8 py-4 uppercase tracking-widest text-sm font-medium hover:bg-[#25D366] transition-colors flex items-center justify-center gap-3"
               >
-                <ShoppingCart size={18} /> Add to Cart — ₹{(price * qty).toLocaleString()}
+                <MessageCircle size={18} /> Enquire on WhatsApp — ₹{(price * qty).toLocaleString()}
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      <WhatsAppOrderModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        product={product}
+        selectedVariant={`Size: ${selectedSize}, Cover: ${selectedCover}`}
+        quantity={qty}
+      />
     </PageWrapper>
   );
 };

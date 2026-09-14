@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const products = [
   {
-    title: "Wedding Cinematic Video",
-    desc: "Capture breathtaking, authentic wedding moments and relive your stories in motion with our expert cinematography services.",
-    img: "/product_ai_video.jpg",
+    title: "Professional Camera Gear",
+    desc: "High-end cameras, rapid chargers, reliable battery cells, and essential equipment for all your photography needs.",
+    img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&auto=format&fit=crop&q=80",
     link: "/shop",
-    hasMotion: true // Flag to add continuous motion
+    hasMotion: true // Keeps the slow zoom animation
   },
   {
     title: "Premium Photobook Album",

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { CreditCard, CheckCircle } from 'lucide-react';
+import { useCart } from '../../context/CartContext';
 import PageWrapper from '../../components/layout/PageWrapper';
 
 const Checkout = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const cartTotal = 15000;
+  const { cart, cartTotalAmount } = useCart();
 
   const handleRazorpayPayment = async () => {
     setIsProcessing(true);
@@ -72,18 +72,30 @@ const Checkout = () => {
           <div>
             <div className="bg-primary text-white p-8 sticky top-24">
               <h3 className="text-lg font-serif mb-6 border-b border-gray-700 pb-4">Order Summary</h3>
-              <div className="space-y-4 mb-6 text-sm font-light text-gray-300">
-                <div className="flex justify-between">
-                  <span>1x Premium Leather Photobook</span>
-                  <span>₹15,000</span>
-                </div>
-                <div className="flex justify-between text-xs text-gray-500">
-                  <span>Size: 12x36 | Cover: Velvet</span>
-                </div>
+              
+              <div className="space-y-6 mb-6 max-h-64 overflow-y-auto pr-2">
+                {cart.length === 0 ? (
+                  <p className="text-gray-400 text-sm italic">Your cart is empty.</p>
+                ) : (
+                  cart.map((item) => (
+                    <div key={item.cartId} className="flex flex-col gap-1 border-b border-gray-700 pb-3 last:border-0 last:pb-0">
+                      <div className="flex justify-between items-start gap-2">
+                        <span className="text-sm font-medium leading-tight">{item.quantity}x {item.name}</span>
+                        <span className="text-sm text-secondary shrink-0">₹{item.totalPrice.toLocaleString()}</span>
+                      </div>
+                      {item.variantString && (
+                        <span className="text-[11px] text-gray-400 leading-tight">
+                          {item.variantString}
+                        </span>
+                      )}
+                    </div>
+                  ))
+                )}
               </div>
+
               <div className="border-t border-gray-700 pt-4 mb-8 flex justify-between items-center text-lg font-medium">
                 <span>Total</span>
-                <span className="text-secondary">₹{cartTotal.toLocaleString()}</span>
+                <span className="text-secondary">₹{cartTotalAmount.toLocaleString()}</span>
               </div>
               <button 
                 onClick={handleRazorpayPayment}

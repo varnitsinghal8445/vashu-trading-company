@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import { CartProvider } from './context/CartContext';
 
 // Pages
 import Home from './pages/Home';
@@ -31,46 +32,48 @@ import WhatsAppCTA from './components/layout/WhatsAppCTA';
 
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen bg-[#0a0a0a]">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/journey" element={<Journey />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/photography" element={<Photography />} />
-            <Route path="/albums" element={<Albums />} />
-            <Route path="/photobooks" element={<Photobooks />} />
-            <Route path="/frames" element={<Frames />} />
-            <Route path="/photo-printing" element={<PhotoPrinting />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/book-now" element={<BookNow />} />
-            {/* Added for Phase 5 & 6 */}
-            <Route path="/gallery/:id" element={<Gallery />} />
-            <Route path="/album/:id" element={<AlbumPreview />} />
-            {/* Added for Phase 7 & 9 */}
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/dashboard" element={<CustomerDashboard />} />
-            {/* Added for Phase 8: Admin */}
-            <Route path="/admin" element={<DashboardOverview />} />
-            <Route path="/admin/leads" element={<LeadsManager />} />
-            <Route path="/admin/bookings" element={<EventCalendar />} />
-            <Route path="/admin/customers" element={<CustomerView />} />
-            <Route path="/admin/customers/:id" element={<CustomerView />} />
-            {/* Added for Phase 10: AI Album Selection */}
-            <Route path="/album/ai-selection" element={<AIAlbumSelection />} />
-          </Routes>
-        </main>
-        <Footer />
-        <WhatsAppCTA />
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <div className="flex flex-col min-h-screen bg-[#0a0a0a]">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/journey" element={<Journey />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/photography" element={<Photography />} />
+              <Route path="/albums" element={<Albums />} />
+              <Route path="/photobooks" element={<Photobooks />} />
+              <Route path="/frames" element={<Frames />} />
+              <Route path="/photo-printing" element={<PhotoPrinting />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/reviews" element={<Reviews />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/book-now" element={<BookNow />} />
+              {/* Added for Phase 5 & 6 */}
+              <Route path="/gallery/:id" element={<Gallery />} />
+              <Route path="/album/:id" element={<AlbumPreview />} />
+              {/* Added for Phase 7 & 9 */}
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/dashboard" element={<CustomerDashboard />} />
+              {/* Added for Phase 8: Admin */}
+              <Route path="/admin" element={<DashboardOverview />} />
+              <Route path="/admin/leads" element={<LeadsManager />} />
+              <Route path="/admin/bookings" element={<EventCalendar />} />
+              <Route path="/admin/customers" element={<CustomerView />} />
+              <Route path="/admin/customers/:id" element={<CustomerView />} />
+              {/* Added for Phase 10: AI Album Selection */}
+              <Route path="/album/ai-selection" element={<AIAlbumSelection />} />
+            </Routes>
+          </main>
+          <Footer />
+          <WhatsAppCTA />
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 
