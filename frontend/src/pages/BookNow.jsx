@@ -47,11 +47,11 @@ const BookNow = () => {
           </motion.p>
         </div>
 
-        {/* Wizard Container with shadow and float */}
+        {/* Wizard Container with float */}
         <motion.div
           whileHover={{ y: -5 }}
           transition={{ duration: 0.4 }}
-          className="shadow-2xl shadow-black/50 rounded-lg overflow-hidden ring-1 ring-white/10"
+          className="flex justify-center"
         >
           <BookingWizard />
         </motion.div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowLeft, Check, Edit2 } from 'lucide-react';
 import { eventTypes, serviceOptions, packages, albumCustomization } from '../../data/eventServices';
 import WhatsAppServiceModal from '../shop/WhatsAppServiceModal';
+import { motion } from 'framer-motion';
 
 const StepSummary = ({ state, updateState, onPrev, onEdit }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -93,33 +94,39 @@ const StepSummary = ({ state, updateState, onPrev, onEdit }) => {
     : null;
 
   return (
-    <div className="space-y-8 flex flex-col h-full animate-fade-in-up">
-      <div>
-        <h2 className="text-3xl font-serif text-primary mb-2">Your Photography Plan</h2>
-        <p className="text-gray-500 font-light text-sm">Review your custom package details below.</p>
-      </div>
+    <div className="space-y-8 flex flex-col h-full">
+      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <h2 className="text-3xl md:text-4xl font-serif text-white mb-2 tracking-wide">Your Photography Plan</h2>
+        <p className="text-gray-400 font-light text-sm md:text-base">Review your custom package details below.</p>
+      </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 flex-grow overflow-y-auto pr-4 custom-scrollbar max-h-[50vh]">
         
         {/* Left: Summary Details */}
         <div className="lg:col-span-2 space-y-6">
           
-          <div className="bg-gray-50 p-6 border border-gray-100 rounded-sm relative">
-            <button onClick={() => onEdit(2)} className="absolute top-6 right-6 text-gray-400 hover:text-secondary"><Edit2 size={16}/></button>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-gray-800 mb-4 border-b border-gray-200 pb-2">Functions & Services</h3>
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-black/30 p-6 md:p-8 border border-white/10 rounded-xl backdrop-blur-md relative"
+          >
+            <button onClick={() => onEdit(2)} className="absolute top-6 right-6 text-gray-500 hover:text-secondary transition-colors"><Edit2 size={18}/></button>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-6 border-b border-white/10 pb-4 flex items-center">
+              <span className="w-2 h-2 rounded-full bg-secondary mr-3 shadow-[0_0_8px_#d4af37]"></span>
+              Functions & Services
+            </h3>
             {state.functions.map(fnId => {
               const fnName = event?.functions.find(f => f.id === fnId)?.name;
               const srvIds = state.services[fnId] || [];
               if (srvIds.length === 0) return null;
               
               return (
-                <div key={fnId} className="mb-4 last:mb-0">
-                  <p className="font-semibold text-gray-900 text-sm mb-1">{fnName}</p>
+                <div key={fnId} className="mb-6 last:mb-0">
+                  <p className="font-semibold text-secondary text-sm mb-3 tracking-wider">{fnName}</p>
                   <div className="flex flex-wrap gap-2">
                     {srvIds.map(sId => {
                       const sName = serviceOptions.find(s => s.id === sId)?.name;
                       return (
-                        <span key={sId} className="bg-white border border-gray-200 px-2 py-1 text-xs text-gray-600 rounded-sm flex items-center gap-1">
+                        <span key={sId} className="bg-white/5 border border-white/10 px-3 py-1.5 text-xs text-gray-300 rounded-lg flex items-center gap-1.5 shadow-sm">
                           <Check size={12} className="text-secondary"/> {sName}
                         </span>
                       );
@@ -128,32 +135,44 @@ const StepSummary = ({ state, updateState, onPrev, onEdit }) => {
                 </div>
               );
             })}
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-gray-50 p-6 border border-gray-100 rounded-sm relative">
-              <button onClick={() => onEdit(4)} className="absolute top-6 right-6 text-gray-400 hover:text-secondary"><Edit2 size={16}/></button>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-gray-800 mb-4 border-b border-gray-200 pb-2">Pre-Wedding</h3>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-black/30 p-6 border border-white/10 rounded-xl backdrop-blur-md relative"
+            >
+              <button onClick={() => onEdit(4)} className="absolute top-6 right-6 text-gray-500 hover:text-secondary transition-colors"><Edit2 size={16}/></button>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-3 flex items-center">
+                <span className="w-2 h-2 rounded-full bg-secondary mr-3 shadow-[0_0_8px_#d4af37]"></span>
+                Pre-Wedding
+              </h3>
               {state.preWedding.needed ? (
-                <div className="text-sm text-gray-600 space-y-1">
-                  <p><span className="font-medium text-gray-900">Location:</span> {state.preWedding.location}</p>
-                  <p><span className="font-medium text-gray-900">Duration:</span> {state.preWedding.days}</p>
-                  <p><span className="font-medium text-gray-900">Photo:</span> {state.preWedding.photography}</p>
-                  <p><span className="font-medium text-gray-900">Video:</span> {state.preWedding.video}</p>
+                <div className="text-sm text-gray-400 space-y-2">
+                  <p><span className="font-medium text-white">Location:</span> {state.preWedding.location}</p>
+                  <p><span className="font-medium text-white">Duration:</span> {state.preWedding.days}</p>
+                  <p><span className="font-medium text-white">Photo:</span> {state.preWedding.photography}</p>
+                  <p><span className="font-medium text-white">Video:</span> {state.preWedding.video}</p>
                 </div>
               ) : (
                 <p className="text-sm text-gray-500 italic">Not Selected</p>
               )}
-            </div>
+            </motion.div>
 
-            <div className="bg-gray-50 p-6 border border-gray-100 rounded-sm relative">
-              <button onClick={() => onEdit(5)} className="absolute top-6 right-6 text-gray-400 hover:text-secondary"><Edit2 size={16}/></button>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-gray-800 mb-4 border-b border-gray-200 pb-2">Albums</h3>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-black/30 p-6 border border-white/10 rounded-xl backdrop-blur-md relative"
+            >
+              <button onClick={() => onEdit(5)} className="absolute top-6 right-6 text-gray-500 hover:text-secondary transition-colors"><Edit2 size={16}/></button>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-3 flex items-center">
+                <span className="w-2 h-2 rounded-full bg-secondary mr-3 shadow-[0_0_8px_#d4af37]"></span>
+                Albums
+              </h3>
               {state.albums.length > 0 ? (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {state.albums.map((a, i) => (
-                    <div key={a.id} className="text-sm text-gray-600">
-                      <p className="font-medium text-gray-900">Album {i+1}</p>
+                    <div key={a.id} className="text-sm text-gray-400 bg-white/5 p-3 rounded-lg border border-white/5">
+                      <p className="font-medium text-white mb-1">Album {i+1}</p>
                       <p>{a.size} • {a.pages} • Qty: {a.quantity}</p>
                     </div>
                   ))}
@@ -161,37 +180,43 @@ const StepSummary = ({ state, updateState, onPrev, onEdit }) => {
               ) : (
                 <p className="text-sm text-gray-500 italic">None</p>
               )}
-            </div>
+            </motion.div>
           </div>
 
-          <div className="bg-gray-50 p-6 border border-gray-100 rounded-sm relative">
-            <button onClick={() => onEdit(6)} className="absolute top-6 right-6 text-gray-400 hover:text-secondary"><Edit2 size={16}/></button>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-gray-800 mb-4 border-b border-gray-200 pb-2">Event Details</h3>
-            <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
-              <p><span className="font-medium text-gray-900 block">Date</span> {state.details.date}</p>
-              <p><span className="font-medium text-gray-900 block">Location</span> {state.details.location}</p>
-              <p><span className="font-medium text-gray-900 block">Guests</span> {state.details.guests}</p>
-              <p><span className="font-medium text-gray-900 block">Team</span> {state.details.teamPreference}</p>
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-black/30 p-6 border border-white/10 rounded-xl backdrop-blur-md relative"
+          >
+            <button onClick={() => onEdit(6)} className="absolute top-6 right-6 text-gray-500 hover:text-secondary transition-colors"><Edit2 size={16}/></button>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-3 flex items-center">
+              <span className="w-2 h-2 rounded-full bg-secondary mr-3 shadow-[0_0_8px_#d4af37]"></span>
+              Event Details
+            </h3>
+            <div className="grid grid-cols-2 gap-4 text-sm text-gray-400">
+              <p><span className="font-medium text-white block mb-1">Date</span> {state.details.date}</p>
+              <p><span className="font-medium text-white block mb-1">Location</span> {state.details.location}</p>
+              <p><span className="font-medium text-white block mb-1">Guests</span> {state.details.guests}</p>
+              <p><span className="font-medium text-white block mb-1">Team</span> {state.details.teamPreference}</p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
         {/* Right: Pricing & Booking */}
-        <div>
-          <div className="bg-primary text-white p-8 sticky top-24 shadow-xl">
-            <h3 className="text-xl font-serif mb-6 border-b border-gray-700 pb-4">Estimate</h3>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
+          <div className="bg-black/60 border border-white/10 p-8 rounded-xl sticky top-0 shadow-2xl backdrop-blur-lg">
+            <h3 className="text-xl font-serif text-white mb-6 border-b border-white/10 pb-4">Estimate</h3>
             
             <div className="mb-8">
               {isCustomQuote ? (
                 <div>
-                  <p className="text-3xl font-bold text-secondary mb-2">Custom Quote</p>
+                  <p className="text-3xl font-bold text-secondary mb-2 drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]">Custom Quote</p>
                   <p className="text-xs text-gray-400">Your selection includes advanced services (e.g. Drone) that require a custom calculation.</p>
                 </div>
               ) : (
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Starting From</p>
-                  <p className="text-4xl font-bold text-secondary mb-2">₹{totalPrice.toLocaleString()}</p>
+                  <p className="text-4xl font-bold text-secondary mb-2 drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]">₹{totalPrice.toLocaleString()}</p>
                   <p className="text-[10px] text-gray-500">*Final price may vary based on exact location logistics and dates.</p>
                 </div>
               )}
@@ -199,18 +224,18 @@ const StepSummary = ({ state, updateState, onPrev, onEdit }) => {
 
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="w-full bg-secondary text-primary py-4 uppercase tracking-widest text-sm font-bold hover:bg-white transition-colors"
+              className="w-full bg-secondary text-black py-4 uppercase tracking-widest text-sm font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all rounded-lg"
             >
               Send Enquiry
             </button>
 
             {recommendedPackage && (
-              <div className="mt-8 pt-6 border-t border-gray-700">
+              <div className="mt-8 pt-6 border-t border-white/10">
                 <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">Our Recommendation</p>
-                <div className="bg-gray-800 p-4 rounded-sm border border-gray-700">
+                <div className="bg-white/5 p-4 rounded-lg border border-white/10">
                   <p className="font-bold text-white mb-1">{recommendedPackage.name}</p>
                   <p className="text-xs text-gray-400 leading-relaxed mb-3">{recommendedPackage.description}</p>
-                  <p className="text-sm font-bold text-secondary">
+                  <p className="text-sm font-bold text-secondary drop-shadow-[0_0_5px_rgba(212,175,55,0.3)]">
                     {typeof recommendedPackage.basePrice === 'number' ? `₹${recommendedPackage.basePrice.toLocaleString()}` : recommendedPackage.basePrice}
                   </p>
                 </div>
@@ -218,14 +243,14 @@ const StepSummary = ({ state, updateState, onPrev, onEdit }) => {
             )}
 
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-start items-center pt-8 border-t border-gray-100 mt-auto">
+      <div className="flex justify-start items-center pt-8 border-t border-white/10 mt-auto">
         <button 
           onClick={onPrev}
-          className="flex items-center text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-gray-900 transition-colors"
+          className="flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
         >
           <ArrowLeft size={14} className="mr-2" /> Back to Details
         </button>

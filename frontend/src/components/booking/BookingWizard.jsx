@@ -70,20 +70,20 @@ const BookingWizard = () => {
   const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
 
   return (
-    <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-xl min-h-[600px] shadow-2xl border border-white/20 flex flex-col relative overflow-hidden rounded-lg">
+    <div className="max-w-4xl mx-auto bg-black/60 backdrop-blur-2xl min-h-[600px] shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-white/10 flex flex-col relative overflow-hidden rounded-xl">
       
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gray-100">
+      {/* Glowing Progress Bar */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-white/5">
         <motion.div 
-          className="h-full bg-secondary"
+          className="h-full bg-secondary shadow-[0_0_10px_#d4af37]"
           initial={{ width: 0 }}
           animate={{ width: `${progressPercentage}%` }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         />
       </div>
 
       {/* Header Info */}
-      <div className="px-8 pt-8 pb-4 flex justify-between items-center border-b border-gray-50">
+      <div className="px-8 pt-8 pb-4 flex justify-between items-center border-b border-white/10">
         <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">
           Step {currentStep} of {totalSteps}
         </span>
@@ -105,10 +105,11 @@ const BookingWizard = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, x: 20, filter: 'blur(5px)' }}
+            animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, x: -20, filter: 'blur(5px)' }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="h-full"
           >
             {renderStep()}
           </motion.div>

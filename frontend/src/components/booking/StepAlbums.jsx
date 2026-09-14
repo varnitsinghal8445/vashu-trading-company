@@ -1,5 +1,6 @@
 import { albumCustomization } from '../../data/eventServices';
 import { ArrowLeft, ArrowRight, Plus, Trash2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const StepAlbums = ({ state, updateState, onNext, onPrev }) => {
   const albums = state.albums || [];
@@ -7,13 +8,11 @@ const StepAlbums = ({ state, updateState, onNext, onPrev }) => {
   const handleNeedsAlbum = (needs) => {
     if (needs) {
       if (albums.length === 0) {
-        // Add a default album
         addAlbum();
       }
     } else {
       updateState('albums', []);
-      // Auto advance on skip
-      setTimeout(onNext, 300);
+      setTimeout(onNext, 400);
     }
   };
 
@@ -40,109 +39,130 @@ const StepAlbums = ({ state, updateState, onNext, onPrev }) => {
   return (
     <div className="space-y-8 flex flex-col h-full">
       <div>
-        <h2 className="text-3xl font-serif text-primary mb-2">Wedding Albums</h2>
-        <p className="text-gray-500 font-light text-sm">Would you like to include premium printed albums?</p>
+        <h2 className="text-3xl md:text-4xl font-serif text-white mb-2 tracking-wide">Wedding Albums</h2>
+        <p className="text-gray-400 font-light text-sm md:text-base">Would you like to include premium printed albums?</p>
       </div>
 
-      <div className="flex gap-4">
-        <button
+      <div className="flex flex-col sm:flex-row gap-4">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={() => handleNeedsAlbum(true)}
-          className={`flex-1 py-4 border rounded-sm font-bold uppercase tracking-widest text-sm transition-all ${
+          className={`flex-1 py-5 px-4 border rounded-xl font-bold uppercase tracking-widest text-sm transition-all duration-300 ${
             hasAlbums 
-              ? 'bg-secondary text-primary border-secondary' 
-              : 'border-gray-200 text-gray-500 hover:border-secondary'
+              ? 'bg-secondary/20 text-secondary border-secondary shadow-[0_0_20px_rgba(212,175,55,0.2)]' 
+              : 'border-white/10 text-gray-400 bg-black/40 hover:border-secondary/50 hover:bg-black/60 hover:text-white'
           }`}
         >
           Yes, Add Album(s)
-        </button>
-        <button
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={() => handleNeedsAlbum(false)}
-          className={`flex-1 py-4 border rounded-sm font-bold uppercase tracking-widest text-sm transition-all ${
-            !hasAlbums && state.albums.length === 0 // Need to know if they actually clicked No, but empty array means no
-              ? 'border-gray-200 text-gray-500 hover:border-gray-300' 
-              : 'border-gray-200 text-gray-500 hover:border-gray-300'
+          className={`flex-1 py-5 px-4 border rounded-xl font-bold uppercase tracking-widest text-sm transition-all duration-300 ${
+            !hasAlbums && state.albums.length === 0
+              ? 'border-white/10 text-gray-400 bg-black/40 hover:border-white/30 hover:bg-black/60 hover:text-white' 
+              : 'border-white/10 text-gray-400 bg-black/40 hover:border-white/30 hover:bg-black/60 hover:text-white'
           }`}
         >
           No, Skip Albums
-        </button>
+        </motion.button>
       </div>
 
-      {hasAlbums && (
-        <div className="space-y-6 flex-grow overflow-y-auto pr-2 custom-scrollbar max-h-[50vh]">
-          {albums.map((album, index) => (
-            <div key={album.id} className="bg-gray-50 p-6 border border-gray-100 rounded-sm relative animate-fade-in-up">
-              
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-gray-800">
-                  Album {index + 1}
-                </h3>
-                {albums.length > 1 && (
-                  <button onClick={() => removeAlbum(album.id)} className="text-gray-400 hover:text-red-500 transition-colors">
-                    <Trash2 size={16} />
-                  </button>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {/* Size */}
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Size</label>
-                  <select 
-                    value={album.size}
-                    onChange={(e) => updateAlbum(album.id, 'size', e.target.value)}
-                    className="w-full border border-gray-300 p-3 text-sm focus:border-secondary focus:outline-none bg-white rounded-sm"
-                  >
-                    <option value="">Select Size...</option>
-                    {albumCustomization.sizes.map(opt => <option key={opt.label} value={opt.label}>{opt.label}</option>)}
-                  </select>
+      <AnimatePresence>
+        {hasAlbums && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4 }}
+            className="space-y-6 flex-grow overflow-y-auto pr-4 custom-scrollbar max-h-[50vh] mt-4"
+          >
+            {albums.map((album, index) => (
+              <motion.div 
+                key={album.id} 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95, height: 0 }}
+                className="bg-black/30 p-6 md:p-8 border border-white/10 rounded-xl backdrop-blur-md relative"
+              >
+                
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center">
+                    <span className="w-2 h-2 rounded-full bg-secondary mr-3 shadow-[0_0_8px_#d4af37]"></span>
+                    Album {index + 1}
+                  </h3>
+                  {albums.length > 1 && (
+                    <button onClick={() => removeAlbum(album.id)} className="text-gray-500 hover:text-red-500 transition-colors p-2">
+                      <Trash2 size={18} />
+                    </button>
+                  )}
                 </div>
 
-                {/* Pages */}
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Pages</label>
-                  <select 
-                    value={album.pages}
-                    onChange={(e) => updateAlbum(album.id, 'pages', e.target.value)}
-                    className="w-full border border-gray-300 p-3 text-sm focus:border-secondary focus:outline-none bg-white rounded-sm"
-                  >
-                    <option value="">Select Pages...</option>
-                    {albumCustomization.pages.map(opt => <option key={opt.label} value={opt.label}>{opt.label}</option>)}
-                  </select>
-                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {/* Size */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Size</label>
+                    <select 
+                      value={album.size}
+                      onChange={(e) => updateAlbum(album.id, 'size', e.target.value)}
+                      className="w-full border border-white/20 p-3.5 text-sm focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none bg-black/50 text-white rounded-lg transition-colors"
+                    >
+                      <option value="" className="bg-gray-900">Select Size...</option>
+                      {albumCustomization.sizes.map(opt => <option key={opt.label} value={opt.label} className="bg-gray-900">{opt.label}</option>)}
+                    </select>
+                  </div>
 
-                {/* Quantity */}
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Quantity</label>
-                  <div className="flex items-center h-[46px] border border-gray-300 rounded-sm bg-white">
-                    <button 
-                      onClick={() => updateAlbum(album.id, 'quantity', Math.max(1, album.quantity - 1))}
-                      className="px-4 text-gray-500 hover:text-black"
-                    >-</button>
-                    <span className="flex-grow text-center text-sm">{album.quantity}</span>
-                    <button 
-                      onClick={() => updateAlbum(album.id, 'quantity', album.quantity + 1)}
-                      className="px-4 text-gray-500 hover:text-black"
-                    >+</button>
+                  {/* Pages */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Pages</label>
+                    <select 
+                      value={album.pages}
+                      onChange={(e) => updateAlbum(album.id, 'pages', e.target.value)}
+                      className="w-full border border-white/20 p-3.5 text-sm focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none bg-black/50 text-white rounded-lg transition-colors"
+                    >
+                      <option value="" className="bg-gray-900">Select Pages...</option>
+                      {albumCustomization.pages.map(opt => <option key={opt.label} value={opt.label} className="bg-gray-900">{opt.label}</option>)}
+                    </select>
+                  </div>
+
+                  {/* Quantity */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Quantity</label>
+                    <div className="flex items-center h-[46px] border border-white/20 rounded-lg bg-black/50 overflow-hidden">
+                      <button 
+                        onClick={() => updateAlbum(album.id, 'quantity', Math.max(1, album.quantity - 1))}
+                        className="px-4 h-full text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+                      >-</button>
+                      <span className="flex-grow text-center text-sm font-bold text-white">{album.quantity}</span>
+                      <button 
+                        onClick={() => updateAlbum(album.id, 'quantity', album.quantity + 1)}
+                        className="px-4 h-full text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+                      >+</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
 
-          <button 
-            onClick={addAlbum}
-            className="w-full py-4 border-2 border-dashed border-gray-300 text-gray-500 hover:border-secondary hover:text-secondary transition-colors font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2"
-          >
-            <Plus size={16} /> Add Another Album
-          </button>
-        </div>
-      )}
+            <motion.button 
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
+              onClick={addAlbum}
+              className="w-full py-5 border-2 border-dashed border-white/20 text-gray-400 hover:border-secondary hover:text-secondary hover:bg-secondary/5 transition-all rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2"
+            >
+              <Plus size={16} /> Add Another Album
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Navigation */}
-      <div className="flex justify-between items-center pt-8 border-t border-gray-100 mt-auto">
+      <div className="flex justify-between items-center pt-8 border-t border-white/10 mt-auto">
         <button 
           onClick={onPrev}
-          className="flex items-center text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-gray-900 transition-colors"
+          className="flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
         >
           <ArrowLeft size={14} className="mr-2" /> Back
         </button>
@@ -150,10 +170,10 @@ const StepAlbums = ({ state, updateState, onNext, onPrev }) => {
         <button 
           onClick={onNext}
           disabled={!isComplete}
-          className={`flex items-center px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors ${
+          className={`flex items-center px-8 py-4 text-xs font-bold uppercase tracking-widest transition-all rounded-sm ${
             isComplete
-              ? 'bg-secondary text-primary hover:bg-black hover:text-white' 
-              : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              ? 'bg-secondary text-black hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]' 
+              : 'bg-white/5 text-gray-600 cursor-not-allowed border border-white/5'
           }`}
         >
           Continue <ArrowRight size={14} className="ml-2" />
