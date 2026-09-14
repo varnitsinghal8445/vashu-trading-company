@@ -70,7 +70,7 @@ const BookingWizard = () => {
   const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
 
   return (
-    <div className="max-w-4xl mx-auto bg-white min-h-[600px] shadow-xl border border-gray-100 flex flex-col relative overflow-hidden">
+    <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-xl min-h-[600px] shadow-2xl border border-white/20 flex flex-col relative overflow-hidden rounded-lg">
       
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gray-100">
