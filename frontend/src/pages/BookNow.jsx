@@ -1,11 +1,11 @@
 import PageWrapper from '../components/layout/PageWrapper';
+import BookingWizard from '../components/booking/BookingWizard';
 
 const BookNow = () => {
   return (
-    <PageWrapper>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h1 className="text-4xl font-serif text-primary mb-8">Book Now</h1>
-        <p className="text-gray-600">This page is currently under construction.</p>
+    <PageWrapper className="bg-gray-50 pt-32 pb-32 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <BookingWizard />
       </div>
     </PageWrapper>
   );

@@ -1,0 +1,13 @@
+{
+  "name": "digital-photo-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && npm run server",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+  },
+  "dependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
