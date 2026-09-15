@@ -4,6 +4,7 @@ import { ArrowRight, X, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PageWrapper from '../components/layout/PageWrapper';
 import { serviceCategories, allServices } from '../data/servicesList';
+import CinematicMemoriesBackground from '../components/ui/CinematicMemoriesBackground';
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -18,10 +19,15 @@ const Services = () => {
   };
 
   return (
-    <PageWrapper className="bg-black text-white min-h-screen pb-32">
+    <PageWrapper className="bg-black text-white min-h-screen pb-32 relative">
       
+      {/* Animated Cinematic Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <CinematicMemoriesBackground />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
+      <section className="relative z-10 pt-40 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +42,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid by Category */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 py-10">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 py-10">
         {serviceCategories.map((category, catIndex) => {
           const categoryServices = allServices.filter(s => s.category === category.id);
           
@@ -108,7 +114,7 @@ const Services = () => {
       </section>
 
       {/* Not Sure What You Need CTA */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+      <section className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
