@@ -71,7 +71,7 @@ export const allServices = [
     title: 'Candid Photography',
     shortDesc: 'Real smiles. Real emotions. Real moments — captured without asking you to pose.',
     longDesc: 'We blend into the background to capture the genuine, unscripted moments of your celebration. The laughter, the tears, and the stolen glances—preserved forever.',
-    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://imgs.search.brave.com/P2nVXKOrGVKDB9vxJUL-UHZlxuaPMtmYoNJVwP4PtjI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQ4/NTY0ODEyMy9waG90/by9yZWFyLXZpZXct/b2YtZW1icmFjZWQt/c2VuaW9yLWNvdXBs/ZS1sb29raW5nLWF0/LXRoZWlyLWZhbWls/eS1pbi1uYXR1cmUu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PWNyd05QSjMzY2Js/OE9ET1FldFBhZW9n/NGZXMXpHeFVULXZE/UEZxVXUyak09',
     features: ['Unobtrusive coverage', 'Photojournalistic approach', 'Emotionally driven', 'Extensive digital gallery'],
     startingPrice: '₹25,000',
     builderTarget: 'services'
