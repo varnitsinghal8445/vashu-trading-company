@@ -82,7 +82,7 @@ export const allServices = [
     title: 'Traditional Photography',
     shortDesc: 'Every important ritual, family moment, and tradition captured beautifully.',
     longDesc: 'Ensuring that every guest, every ritual, and every family member is documented clearly and beautifully. The classic approach that guarantees no important moment is missed.',
-    image: 'https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://imgs.search.brave.com/zJ5ZZBd6zX07gUZvIGepilMvH_wYSjbzHdu6WCH6uJ8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ha3No/aXRwaG90b2dyYXBo/eS5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjIvMDUvNjU4/QTA5NTktNzY4eDUx/Mi5qcGc',
     features: ['Stage coverage', 'Group portraits', 'Ritual documentation', 'Comprehensive lighting setup'],
     startingPrice: '₹15,000',
     builderTarget: 'services'
