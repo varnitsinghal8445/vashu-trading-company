@@ -20,6 +20,13 @@ const Services = () => {
   return (
     <PageWrapper className="bg-black text-white min-h-screen pb-32 relative">
       
+      {/* Static Cinematic Background */}
+      <div 
+        className="fixed inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: `url('/cinematic-wedding-memories-bg.jpg')` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
+      </div>
 
       {/* Hero Section */}
       <section className="relative z-10 pt-40 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
