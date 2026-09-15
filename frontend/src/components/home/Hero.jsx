@@ -135,7 +135,7 @@ const Hero = () => {
             </span>
           </Link>
           <Link 
-            to="/portfolio" 
+            to="/services" 
             className="px-10 py-4 border border-white/30 text-white uppercase tracking-[0.2em] text-xs font-bold hover:border-[#d4af37] hover:text-[#d4af37] transition-colors rounded-sm bg-black/20 backdrop-blur-sm"
           >
             Explore Our Work
