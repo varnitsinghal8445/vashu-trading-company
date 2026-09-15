@@ -4,7 +4,6 @@ import { ArrowRight, X, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PageWrapper from '../components/layout/PageWrapper';
 import { serviceCategories, allServices } from '../data/servicesList';
-import CinematicMemoriesBackground from '../components/ui/CinematicMemoriesBackground';
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -20,11 +19,6 @@ const Services = () => {
 
   return (
     <PageWrapper className="bg-black text-white min-h-screen pb-32 relative">
-      
-      {/* Animated Cinematic Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <CinematicMemoriesBackground />
-      </div>
 
       {/* Hero Section */}
       <section className="relative z-10 pt-40 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
