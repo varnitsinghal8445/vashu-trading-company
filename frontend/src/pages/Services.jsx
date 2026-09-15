@@ -66,11 +66,22 @@ const Services = () => {
                     onClick={() => setSelectedService(service)}
                     className="group relative h-[450px] rounded-2xl overflow-hidden cursor-pointer"
                   >
-                    {/* Background Image */}
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                      style={{ backgroundImage: `url(${service.image})` }}
-                    />
+                    {/* Background Media */}
+                    {service.video ? (
+                      <video 
+                        src={service.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div 
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        style={{ backgroundImage: `url(${service.image})` }}
+                      />
+                    )}
                     
                     {/* Dark Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
@@ -141,10 +152,21 @@ const Services = () => {
             >
               {/* Modal Image Header */}
               <div className="relative h-64 shrink-0">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${selectedService.image})` }}
-                />
+                {selectedService.video ? (
+                  <video 
+                    src={selectedService.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${selectedService.image})` }}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                 <button 
                   onClick={() => setSelectedService(null)}

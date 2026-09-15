@@ -60,6 +60,7 @@ export const allServices = [
     shortDesc: 'Beautiful locations, real emotions, and your story captured before the big day.',
     longDesc: 'A dedicated session to capture your chemistry in a relaxed, stunning environment. From epic landscapes to intimate indoor setups, we craft images that celebrate your unique bond.',
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop',
+    video: '/pre-wedding.mp4',
     features: ['Multiple locations', 'Outfit changes', 'Styling assistance', 'High-res retouched images'],
     startingPrice: '₹20,000',
     builderTarget: 'prewedding'
