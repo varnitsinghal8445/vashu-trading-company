@@ -152,6 +152,14 @@ const Services = () => {
   return (
     <PageWrapper className="bg-[#050505] text-white min-h-screen pb-32 relative overflow-hidden">
       
+      {/* Static Cinematic Background */}
+      <div 
+        className="fixed inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: `url('/cinematic-wedding-memories-bg-v2.jpg')` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
+      </div>
+
       {/* Subtle Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div 
