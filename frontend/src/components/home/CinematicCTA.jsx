@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { familyContactConfig } from '../../config/contactConfig';
 import cinematicBg from '../../assets/cinematic-bg.jpg';
@@ -67,13 +68,13 @@ const CinematicCTA = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <a 
-              href={`tel:+${familyContactConfig.general.phoneRaw}`}
+            <Link 
+              to="/book-now"
               className="bg-black/40 backdrop-blur-md border border-secondary/30 text-white px-10 py-4 text-sm tracking-widest uppercase hover:bg-secondary hover:text-black hover:border-secondary transition-all duration-500 w-full sm:w-auto text-center shadow-[0_0_20px_rgba(212,175,55,0.1)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine z-0"></div>
               <span className="relative z-10">BOOK NOW</span>
-            </a>
+            </Link>
             <a 
               href={`https://wa.me/${familyContactConfig.general.phoneRaw}`}
               target="_blank"
