@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import StepEvent from './StepEvent';
@@ -34,6 +34,50 @@ const BookingWizard = () => {
     },
     selectedPackageId: null // if they opt for a preset package
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const prefillId = params.get('prefill');
+    
+    if (prefillId) {
+      import('../../data/servicesList').then(({ allServices }) => {
+        const service = allServices.find(s => s.id === prefillId);
+        if (service) {
+          const defaultEventId = 'e-wedding';
+          const defaultFunctionId = 'f-wedding';
+
+          setBookingState(prev => {
+            const newState = { ...prev, eventId: defaultEventId };
+            
+            if (!newState.functions.includes(defaultFunctionId)) {
+              newState.functions = [...newState.functions, defaultFunctionId];
+            }
+
+            if (service.builderTarget === 'services') {
+              const fnServices = newState.services[defaultFunctionId] || [];
+              if (!fnServices.includes(service.id)) {
+                newState.services = {
+                  ...newState.services,
+                  [defaultFunctionId]: [...fnServices, service.id]
+                };
+              }
+              setCurrentStep(3);
+            } else if (service.builderTarget === 'prewedding') {
+              newState.preWedding = { ...newState.preWedding, needed: true };
+              setCurrentStep(4);
+            } else if (service.builderTarget === 'albums') {
+              if (newState.albums.length === 0) {
+                newState.albums = [{ id: Date.now().toString(), size: '', pages: '', quantity: 1 }];
+              }
+              setCurrentStep(5);
+            }
+
+            return newState;
+          });
+        }
+      });
+    }
+  }, []);
 
   const updateState = (key, value) => {
     setBookingState(prev => ({
