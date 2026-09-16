@@ -122,7 +122,7 @@ export const allServices = [
     title: 'Open Book Album',
     shortDesc: 'Turn your favourite memories into a premium album made to be opened, shared, and remembered.',
     longDesc: 'Our luxury lay-flat albums are handcrafted using premium archival paper and binding materials. Designed to be a family heirloom passed down through generations.',
-    image: 'https://images.unsplash.com/photo-1628123984606-d248ef98cf29?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1544377193-33dce4ea0a0b?q=80&w=2070&auto=format&fit=crop',
     features: ['Lay-flat binding', 'Archival quality paper', 'Custom cover designs', 'Curated layouts'],
     startingPrice: '₹12,000',
     builderTarget: 'albums'
