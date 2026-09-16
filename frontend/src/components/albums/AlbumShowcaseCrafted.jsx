@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const craftedImages = [
-  "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=1600&auto=format&fit=crop", // Main Spread
-  "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1607557165037-4d929bcf00e8?q=80&w=600&auto=format&fit=crop"
+  "/assets/prewedding_album_1_1789587891262.jpg", // Main Spread (Epic Mountain Prewedding)
+  "/assets/album_story_3_1789587607665.jpg",      // Scattered 1 (Sparklers Couple)
+  "/assets/album_story_1_1789587460396.jpg",      // Scattered 2 (Bridal Portrait)
+  "/assets/album_story_5_1789587642778.jpg"       // Scattered 3 (Groom Portrait)
 ];
 
 const AlbumShowcaseCrafted = () => {
