@@ -91,7 +91,7 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-secondary mt-1 mr-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Email Us</h3>
-                    <p className="text-gray-400 font-light">hello@vasutrading.com<br />bookings@vasutrading.com</p>
+                    <p className="text-gray-400 font-light">abhishekpf5255@gmail.com</p>
                   </div>
                 </div>
 
