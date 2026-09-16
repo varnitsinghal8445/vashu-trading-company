@@ -3,11 +3,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 // Replace these with your actual album images
 const storyImages = [
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1607557165037-4d929bcf00e8?q=80&w=800&auto=format&fit=crop"
+  "/assets/album_story_1_1789587460396.jpg",
+  "/assets/album_story_2_1789587471642.jpg",
+  "/assets/album_story_3_1789587607665.jpg",
+  "/assets/album_story_4_1789587629937.jpg",
+  "/assets/album_story_5_1789587642778.jpg"
 ];
 
 const AlbumShowcaseStories = () => {
