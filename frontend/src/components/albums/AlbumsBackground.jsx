@@ -9,17 +9,16 @@ const AlbumsBackground = () => {
   const rotateSlow = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-0">
-      <div className="sticky top-0 w-full h-screen bg-[#070707] overflow-hidden">
+    <div className="fixed inset-0 w-full h-screen pointer-events-none z-0 bg-[#070707] overflow-hidden">
         
-        {/* Album Photographic Background Image */}
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.25]"
-          style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=2000&auto=format&fit=crop")',
-            y: yParallaxSlow 
-          }}
-        />
+      {/* Album Photographic Background Image */}
+      <motion.div 
+        className="absolute inset-0 bg-cover bg-center opacity-[0.25]"
+        style={{ 
+          backgroundImage: 'url("https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=2000&auto=format&fit=crop")',
+          y: yParallaxSlow 
+        }}
+      />
 
         {/* Texture: Film Grain & subtle paper */}
         <div 
@@ -94,7 +93,6 @@ const AlbumsBackground = () => {
 
         {/* Cinematic Vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_20%,_rgba(0,0,0,0.6)_80%,_#000_100%)]"></div>
-      </div>
     </div>
   );
 };

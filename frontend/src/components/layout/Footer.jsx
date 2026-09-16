@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-16 pb-8">
+    <footer className="bg-primary/50 backdrop-blur-2xl border-t border-white/5 text-white pt-16 pb-8 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
             <h2 className="text-3xl font-serif font-bold tracking-wider mb-4">Vasu Trading Company<span className="text-secondary">.</span></h2>
             <p className="text-gray-400 font-light text-sm max-w-sm">
-              36 Years of Turning Moments Into Memories. Premium photography and cinematography based in India.nt moments to creating beautiful albums, frames and digital memories — everything under one roof.
+              36 Years of Turning Moments Into Memories. Premium photography and cinematography based in India. From capturing intimate moments to creating beautiful albums, frames and digital memories — everything under one roof.
             </p>
           </div>
           
