@@ -169,6 +169,7 @@ export const allServices = [
     shortDesc: 'See your celebration from a completely different perspective.',
     longDesc: 'Breathtaking aerial views of your wedding venue, outdoor ceremonies, and grand entrances. Adds a massive cinematic scale to your final wedding film.',
     image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2070&auto=format&fit=crop',
+    video: '/assets/drone-cinematography.mp4',
     features: ['Licensed drone operators', '4K Aerial footage', 'Venue showcases', 'Creative angles'],
     startingPrice: '₹15,000',
     builderTarget: 'services'
