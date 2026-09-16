@@ -54,6 +54,28 @@ export const allServices = [
     startingPrice: '₹15,000',
     builderTarget: 'services'
   },
+  {
+    id: 'haldi-film',
+    category: 'films',
+    title: 'Haldi Ceremony Film',
+    shortDesc: 'A vibrant and playful cinematic capture of your beautiful Haldi moments.',
+    longDesc: 'The Haldi ceremony is full of colors, laughter, and playful moments. We create a dedicated mini-film focusing purely on the vibrant energy of this beautiful tradition.',
+    image: 'https://images.unsplash.com/photo-1627555694723-1eeaa4847e00?q=80&w=2070&auto=format&fit=crop',
+    features: ['Vibrant color grading', 'Candid captures', 'Emotional moments', 'Slow-motion highlights'],
+    startingPrice: '₹12,000',
+    builderTarget: 'services'
+  },
+  {
+    id: 'birthday-film',
+    category: 'films',
+    title: 'Birthday Cinematic Film',
+    shortDesc: 'Celebrate your special day with a joyful and vibrant cinematic video.',
+    longDesc: 'From the cake cutting to the late-night dancing, we capture the joy and energy of your birthday celebration in a high-quality cinematic film.',
+    image: 'https://images.unsplash.com/photo-1530103862676-de8892bf309c?q=80&w=2070&auto=format&fit=crop',
+    features: ['Event coverage', 'Highlight reel', 'Fun transitions', 'Upbeat licensed music'],
+    startingPrice: '₹10,000',
+    builderTarget: 'services'
+  },
 
   // CAPTURE
   {
