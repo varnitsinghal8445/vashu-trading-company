@@ -14,6 +14,9 @@ const TiltFrameCard = ({ frame, idx }) => {
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+  
+  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["-100%", "100%"]);
+  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["-100%", "100%"]);
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -51,8 +54,8 @@ const TiltFrameCard = ({ frame, idx }) => {
       <motion.div
         className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 mix-blend-overlay pointer-events-none transition-opacity duration-300"
         style={{
-          translateX: useTransform(mouseXSpring, [-0.5, 0.5], ["-100%", "100%"]),
-          translateY: useTransform(mouseYSpring, [-0.5, 0.5], ["-100%", "100%"]),
+          translateX: glareX,
+          translateY: glareY,
         }}
       />
 
