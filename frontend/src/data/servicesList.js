@@ -133,7 +133,7 @@ export const allServices = [
     title: 'Photo Slideshow / Memory Film',
     shortDesc: 'Your photographs brought to life through music, motion, and storytelling.',
     longDesc: 'A beautifully paced slideshow of your best photographs, set to emotional music. A wonderful way to experience your wedding gallery as a continuous story.',
-    image: 'https://images.unsplash.com/photo-1621600411688-4be93cd68504?q=80&w=2080&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=2073&auto=format&fit=crop',
     features: ['Custom music selection', 'Elegant transitions', 'Chronological storytelling', 'HD Video delivery'],
     startingPrice: '₹5,000',
     builderTarget: 'services'
