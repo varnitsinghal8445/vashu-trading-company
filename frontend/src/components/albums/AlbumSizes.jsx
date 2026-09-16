@@ -26,7 +26,7 @@ const AlbumSizes = () => {
   const basePixels = 300; // Base width for max dimension
 
   return (
-    <section className="relative z-10 py-32 bg-[#0a0a0a] border-t border-white/5">
+    <section className="relative z-10 py-32 bg-transparent border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-20">

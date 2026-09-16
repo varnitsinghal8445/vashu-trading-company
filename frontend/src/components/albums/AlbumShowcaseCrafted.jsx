@@ -10,7 +10,7 @@ const craftedImages = [
 
 const AlbumShowcaseCrafted = () => {
   return (
-    <section className="relative z-10 py-32 bg-[#050505]">
+    <section className="relative z-10 py-32 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-20">

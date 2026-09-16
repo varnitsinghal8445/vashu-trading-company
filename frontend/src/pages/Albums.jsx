@@ -66,7 +66,7 @@ const Albums = () => {
       <AlbumSizes />
 
       {/* FINAL CTA SECTION */}
-      <section className="relative z-10 py-40 px-4 bg-gradient-to-b from-[#0a0a0a] to-[#000] flex flex-col items-center text-center border-t border-white/5">
+      <section className="relative z-10 py-40 px-4 bg-transparent flex flex-col items-center text-center border-t border-white/5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

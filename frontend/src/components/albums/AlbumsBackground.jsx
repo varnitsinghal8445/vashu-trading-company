@@ -10,6 +10,16 @@ const AlbumsBackground = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 bg-[#070707] overflow-hidden">
+      
+      {/* Album Photographic Background Image */}
+      <motion.div 
+        className="absolute inset-0 bg-cover bg-center opacity-[0.2]"
+        style={{ 
+          backgroundImage: 'url("https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=2000&auto=format&fit=crop")',
+          y: yParallaxSlow 
+        }}
+      />
+
       {/* Texture: Film Grain & subtle paper */}
       <div 
         className="absolute inset-0 opacity-[0.04]"
