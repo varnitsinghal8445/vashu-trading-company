@@ -38,20 +38,20 @@ const PhotographyCTA = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
           <Link 
-            to="/portfolio"
+            to="/contact"
             className="group relative px-8 py-4 bg-white text-[#050505] overflow-hidden rounded-sm transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
           >
             <span className="relative z-10 flex items-center font-serif text-lg">
-              Explore Wedding Stories
+              Contact Us
               <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
           
           <Link 
-            to="/booking"
+            to="/albums"
             className="px-8 py-4 bg-transparent border border-white/20 text-white hover:bg-white/5 transition-colors rounded-sm font-serif text-lg"
           >
-            Plan Your Story
+            Explore Albums
           </Link>
         </motion.div>
       </div>
