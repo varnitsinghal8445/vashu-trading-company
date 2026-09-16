@@ -19,14 +19,19 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Generate random particles for the magical gold dust effect
-  const particles = Array.from({ length: 25 }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 3 + 1,
-    left: Math.random() * 100,
-    duration: Math.random() * 15 + 10,
-    delay: Math.random() * 5,
-  }));
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    // Generate random particles for the magical gold dust effect
+    const generatedParticles = Array.from({ length: 25 }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 3 + 1,
+      left: Math.random() * 100,
+      duration: Math.random() * 15 + 10,
+      delay: Math.random() * 5,
+    }));
+    setParticles(generatedParticles);
+  }, []);
 
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0a0a0a]">

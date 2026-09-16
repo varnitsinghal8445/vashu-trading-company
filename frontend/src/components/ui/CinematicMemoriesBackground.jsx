@@ -14,9 +14,12 @@ const memoryImages = [
 ];
 
 const CinematicMemoriesBackground = () => {
-  // Generate random properties for floating images
-  const floatingMemories = useMemo(() => {
-    return Array.from({ length: 12 }).map((_, i) => {
+  const [floatingMemories, setFloatingMemories] = useState([]);
+  const [dustParticles, setDustParticles] = useState([]);
+
+  useEffect(() => {
+    // Generate random properties for floating images
+    const generatedMemories = Array.from({ length: 12 }).map((_, i) => {
       const isForeground = Math.random() > 0.7;
       const isBackground = Math.random() < 0.3;
       
@@ -55,11 +58,9 @@ const CinematicMemoriesBackground = () => {
         delay: Math.random() * -60, // Start at different times
       };
     });
-  }, []);
 
-  // Generate dust particles
-  const dustParticles = useMemo(() => {
-    return Array.from({ length: 40 }).map((_, i) => ({
+    // Generate dust particles
+    const generatedDust = Array.from({ length: 40 }).map((_, i) => ({
       id: i,
       size: Math.random() * 3 + 1,
       left: `${Math.random() * 100}%`,
@@ -67,6 +68,9 @@ const CinematicMemoriesBackground = () => {
       duration: Math.random() * 20 + 10,
       delay: Math.random() * -20,
     }));
+
+    setFloatingMemories(generatedMemories);
+    setDustParticles(generatedDust);
   }, []);
 
   return (
