@@ -37,7 +37,7 @@ export const allServices = [
     title: 'Couple Story / Love Story Film',
     shortDesc: 'Your journey, your personalities, your story — captured as a film that\'s uniquely yours.',
     longDesc: 'A documentary-style film detailing how you met, your favorite moments, and your journey to the altar. Perfect for playing at your reception or sharing with family.',
-    image: 'https://images.unsplash.com/photo-1522851496357-55097fdbd5bb?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop',
     features: ['Interviews with the couple', 'Lifestyle b-roll', 'Custom script/narrative', 'Location scouting'],
     startingPrice: '₹25,000',
     builderTarget: 'prewedding'
