@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import PageWrapper from '../components/layout/PageWrapper';
 
 const Contact = () => {
@@ -107,10 +107,10 @@ const Contact = () => {
               <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-bold mb-6">Connect</h2>
               <div className="flex space-x-6">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors p-3 border border-white/10 rounded-full hover:border-secondary hover:bg-secondary/10">
-                  <Instagram className="w-5 h-5" />
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors p-3 border border-white/10 rounded-full hover:border-secondary hover:bg-secondary/10">
-                  <Facebook className="w-5 h-5" />
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
               </div>
             </div>
