@@ -26,6 +26,7 @@ export const allServices = [
     shortDesc: 'Not just a video — a cinematic film crafted from your most meaningful moments.',
     longDesc: 'A shorter, highly stylized representation of your wedding day. We focus on dramatic lighting, artistic composition, and emotional music to create a breathtaking highlight reel.',
     image: 'https://images.unsplash.com/photo-1583939000340-c6e73680fa2a?q=80&w=2070&auto=format&fit=crop',
+    video: '/assets/cinematic-wedding-video.mp4',
     features: ['5-10 minute highlight film', 'Artistic transitions', 'Licensed music', '4K Delivery'],
     startingPrice: '₹35,000',
     builderTarget: 'services'
