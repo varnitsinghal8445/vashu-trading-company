@@ -146,8 +146,14 @@ const AlbumConfigurator = () => {
             whileHover={{ rotateY: -5, rotateX: 10 }}
           >
             {/* The Album Cover */}
-            <div className="absolute inset-0 bg-[#1a1a1a] rounded-sm border border-white/10 overflow-hidden transform-style-3d">
+            <div 
+              className="absolute inset-0 bg-cover bg-center rounded-sm border border-white/10 overflow-hidden transform-style-3d"
+              style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop")' }}
+            >
               
+              {/* Dark overlay to ensure text visibility and texture blending */}
+              <div className="absolute inset-0 bg-black/40"></div>
+
               {/* Paper Texture Overlay */}
               <div className={`absolute inset-0 transition-opacity duration-1000 mix-blend-overlay ${selectedPaper.id.includes('ntr') ? 'opacity-40' : 'opacity-10'}`} 
                    style={{ backgroundImage: selectedPaper.id.includes('ntr') ? 'url("https://www.transparenttextures.com/patterns/leather.png")' : 'url("https://www.transparenttextures.com/patterns/cubes.png")' }}>
