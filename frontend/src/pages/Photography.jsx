@@ -1,12 +1,27 @@
+import React, { useEffect } from 'react';
 import PageWrapper from '../components/layout/PageWrapper';
+import PhotographyHero from '../components/photography/PhotographyHero';
+import PhotographyTimeline from '../components/photography/PhotographyTimeline';
+import PhotographyMomentsBetween from '../components/photography/PhotographyMomentsBetween';
+import PhotographyChooseMoment from '../components/photography/PhotographyChooseMoment';
+import PhotographyPhotoWall from '../components/photography/PhotographyPhotoWall';
+import PhotographyVideoFilm from '../components/photography/PhotographyVideoFilm';
+import PhotographyCTA from '../components/photography/PhotographyCTA';
 
 const Photography = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <PageWrapper>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h1 className="text-4xl font-serif text-primary mb-8">Photography</h1>
-        <p className="text-gray-600">This page is currently under construction.</p>
-      </div>
+    <PageWrapper className="p-0 bg-[#050505]">
+      <PhotographyHero />
+      <PhotographyTimeline />
+      <PhotographyMomentsBetween />
+      <PhotographyChooseMoment />
+      <PhotographyPhotoWall />
+      <PhotographyVideoFilm />
+      <PhotographyCTA />
     </PageWrapper>
   );
 };
