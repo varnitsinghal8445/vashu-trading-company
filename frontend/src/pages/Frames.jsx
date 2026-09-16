@@ -26,19 +26,19 @@ const Frames = () => {
   // Demo frame images from Unsplash for luxury presentation
   const showcaseFrames = [
     {
-      url: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000&auto=format&fit=crop",
+      url: "/assets/frame_wooden.jpg",
       title: "Classic Wooden",
       y: y1,
       delay: 0.2
     },
     {
-      url: "https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?q=80&w=1000&auto=format&fit=crop",
+      url: "/assets/frame_acrylic.jpg",
       title: "Premium Acrylic",
       y: y2,
       delay: 0.4
     },
     {
-      url: "https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1000&auto=format&fit=crop",
+      url: "/assets/frame_canvas.jpg",
       title: "Gallery Canvas",
       y: y3,
       delay: 0.6
