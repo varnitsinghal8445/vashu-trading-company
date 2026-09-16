@@ -99,7 +99,7 @@ const Contact = () => {
                   <Clock className="w-5 h-5 text-secondary mt-1 mr-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Studio Hours</h3>
-                    <p className="text-gray-400 font-light">Tuesday - Sunday<br />10:00 AM - 7:00 PM<br />(By Appointment Only)</p>
+                    <p className="text-gray-400 font-light">Sunday - Friday<br />10:00 AM - 7:00 PM<br />(By Appointment Only)</p>
                   </div>
                 </div>
               </div>
