@@ -18,7 +18,7 @@ import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
 import BookNow from './pages/BookNow';
 import Gallery from './pages/Gallery';
-import Album from './pages/Album';
+import AlbumPreview from './pages/AlbumPreview';
 import Shop from './pages/shop/Shop';
 import ProductDetails from './pages/shop/ProductDetails';
 import Checkout from './pages/shop/Checkout';
@@ -53,7 +53,7 @@ function App() {
               <Route path="/book-now" element={<BookNow />} />
               {/* Added for Phase 5 & 6 */}
               <Route path="/gallery/:id" element={<Gallery />} />
-              <Route path="/album" element={<Album />} />
+              <Route path="/album/:id" element={<AlbumPreview />} />
               {/* Added for Phase 7 & 9 */}
               <Route path="/shop" element={<Shop />} />
               <Route path="/product/:id" element={<ProductDetails />} />
