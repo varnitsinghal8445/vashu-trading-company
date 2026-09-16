@@ -73,6 +73,7 @@ export const allServices = [
     shortDesc: 'Celebrate your special day with a joyful and vibrant cinematic video.',
     longDesc: 'From the cake cutting to the late-night dancing, we capture the joy and energy of your birthday celebration in a high-quality cinematic film.',
     image: 'https://images.unsplash.com/photo-1530103862676-de8892bf309c?q=80&w=2070&auto=format&fit=crop',
+    video: '/assets/birthday-film.mp4',
     features: ['Event coverage', 'Highlight reel', 'Fun transitions', 'Upbeat licensed music'],
     startingPrice: '₹10,000',
     builderTarget: 'services'
