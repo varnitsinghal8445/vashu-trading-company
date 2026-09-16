@@ -48,10 +48,18 @@ const Frames = () => {
   return (
     <PageWrapper className="bg-[#050505] text-white min-h-screen overflow-hidden font-sans">
       
-      {/* Background Ambience */}
+      {/* Cinematic Gallery Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[150px] mix-blend-screen"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] mix-blend-screen"></div>
+        <img 
+          src="/assets/frames_gallery_bg.jpg" 
+          alt="Gallery Background" 
+          className="w-full h-full object-cover opacity-50 mix-blend-screen"
+        />
+        {/* Overlays for depth and readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-[#050505]/20 to-[#050505]/80"></div>
+        
+        {/* Subtle Ambient Light */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/10 rounded-full blur-[150px] mix-blend-screen"></div>
       </div>
 
       {/* Hero Showcase Section */}
