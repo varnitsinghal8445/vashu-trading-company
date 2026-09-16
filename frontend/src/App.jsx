@@ -44,7 +44,6 @@ import Albums from './pages/Albums';
 import Photobooks from './pages/Photobooks';
 import Frames from './pages/Frames';
 import PhotoPrinting from './pages/PhotoPrinting';
-import Portfolio from './pages/Portfolio';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
 import BookNow from './pages/BookNow';
@@ -79,7 +78,6 @@ function App() {
                 <Route path="/photobooks" element={<Photobooks />} />
                 <Route path="/frames" element={<Frames />} />
                 <Route path="/photo-printing" element={<PhotoPrinting />} />
-                <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/reviews" element={<Reviews />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/book-now" element={<BookNow />} />

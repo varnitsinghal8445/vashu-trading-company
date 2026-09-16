@@ -26,6 +26,7 @@ const Navbar = () => {
     { name: 'Products', path: '/shop' },
     { name: 'Albums', path: '/albums' },
     { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   // Dynamic styling for premium cinematic look
