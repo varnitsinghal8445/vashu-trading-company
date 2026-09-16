@@ -15,7 +15,7 @@ const AlbumsBackground = () => {
       <motion.div 
         className="absolute inset-0 bg-cover bg-center opacity-[0.25]"
         style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=2000&auto=format&fit=crop")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2000&auto=format&fit=crop")',
           y: yParallaxSlow 
         }}
       />
