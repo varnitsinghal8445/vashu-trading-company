@@ -158,6 +158,7 @@ export const allServices = [
     shortDesc: 'Fast, emotional, shareable stories made for Instagram, Reels, and memories.',
     longDesc: 'Vertical cinematic edits optimized specifically for modern social media platforms. Fast-paced, trendy, and instantly shareable with your friends and followers.',
     image: 'https://images.unsplash.com/photo-1516962080544-eac695c93791?q=80&w=2070&auto=format&fit=crop',
+    video: '/assets/wedding-reels.mp4',
     features: ['9:16 Vertical format', 'Trending audio integration', 'Fast cuts', 'Optimized for mobile'],
     startingPrice: '₹10,000',
     builderTarget: 'services'
