@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import { shopProducts } from '../data/shopProducts';
 import { Check, Info, Frame } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const TiltFrameCard = ({ frame, idx }) => {
-  const x = React.useMotionValue(0);
-  const y = React.useMotionValue(0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-  const mouseXSpring = React.useSpring(x);
-  const mouseYSpring = React.useSpring(y);
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
