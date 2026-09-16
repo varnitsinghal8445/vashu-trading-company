@@ -49,6 +49,7 @@ export const allServices = [
     shortDesc: 'A short cinematic glimpse of your story, designed to make you want to watch the full film.',
     longDesc: 'Delivered shortly after your wedding, this 60-second teaser is perfect for social media, giving a high-energy or deeply emotional sneak peek of your final wedding film.',
     image: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop',
+    video: '/assets/wedding-teaser.mp4',
     features: ['60-second duration', 'Fast delivery', 'Social media optimized format', 'Dynamic editing'],
     startingPrice: '₹15,000',
     builderTarget: 'services'
