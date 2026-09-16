@@ -25,13 +25,15 @@ const Contact = () => {
   return (
     <PageWrapper className="relative bg-[#070707] min-h-screen text-white overflow-hidden">
       
-      {/* Cinematic Hero Background */}
-      <div className="absolute inset-0 z-0 h-[60vh] opacity-30">
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: 'url("/assets/cinematic-bg.jpg")' }}
+      {/* Cinematic Animated Hero Background */}
+      <div className="absolute inset-0 z-0 h-[70vh] opacity-35 overflow-hidden">
+        <motion.div 
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="w-full h-full bg-cover bg-center origin-center"
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop")' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-[#070707]/80 to-[#070707]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#070707]/90 to-[#070707]"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-20">
@@ -65,7 +67,7 @@ const Contact = () => {
               <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-bold mb-8">Studio Information</h2>
               
               <div className="space-y-8">
-                <div className="flex items-start group">
+                <div className="flex items-start group hover:-translate-y-1 transition-transform duration-300">
                   <MapPin className="w-5 h-5 text-secondary mt-1 mr-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Visit Us</h3>
@@ -77,7 +79,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start group">
+                <div className="flex items-start group hover:-translate-y-1 transition-transform duration-300">
                   <Phone className="w-5 h-5 text-secondary mt-1 mr-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Call Us</h3>
@@ -85,7 +87,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start group">
+                <div className="flex items-start group hover:-translate-y-1 transition-transform duration-300">
                   <Mail className="w-5 h-5 text-secondary mt-1 mr-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Email Us</h3>
@@ -93,7 +95,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start group">
+                <div className="flex items-start group hover:-translate-y-1 transition-transform duration-300">
                   <Clock className="w-5 h-5 text-secondary mt-1 mr-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Studio Hours</h3>
