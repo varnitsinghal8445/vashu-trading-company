@@ -2,24 +2,17 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const sizes = [
-  { w: 4, h: 6, label: '4x6' },
-  { w: 5, h: 7, label: '5x7' },
-  { w: 6, h: 8, label: '6x8' },
-  { w: 8, h: 10, label: '8x10' },
-  { w: 8, h: 12, label: '8x12' },
-  { w: 10, h: 12, label: '10x12' },
-  { w: 12, h: 15, label: '12x15' },
-  { w: 12, h: 18, label: '12x18' },
-  { w: 16, h: 20, label: '16x20' },
-  { w: 12, h: 36, label: '12x36 (Panoramic)' },
-  { w: 12, h: 24, label: '12x24' },
-  { w: 16, h: 24, label: '16x24' },
-  { w: 20, h: 30, label: '20x30' },
-  { w: 24, h: 36, label: '24x36' },
+  { w: 12, h: 9, label: '9x12' },
+  { w: 20, h: 16, label: '16x20' },
+  { w: 24, h: 12, label: '12x24 (Panoramic)' },
+  { w: 24, h: 16, label: '16x24' },
+  { w: 30, h: 20, label: '20x30' },
+  { w: 36, h: 12, label: '12x36 (Panoramic)' },
+  { w: 36, h: 24, label: '24x36' },
 ];
 
 const AlbumSizes = () => {
-  const [hoveredSize, setHoveredSize] = useState(sizes[4]); // Default 8x12
+  const [hoveredSize, setHoveredSize] = useState(sizes[0]); // Default 9x12
 
   // Find max dimension for scaling
   const maxDim = 36;
