@@ -5,6 +5,67 @@ import { shopProducts } from '../data/shopProducts';
 import { Check, Info, Frame } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+const TiltFrameCard = ({ frame, idx }) => {
+  const x = React.useMotionValue(0);
+  const y = React.useMotionValue(0);
+
+  const mouseXSpring = React.useSpring(x);
+  const mouseYSpring = React.useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: frame.delay, type: "spring", bounce: 0.3 }}
+      style={{ y: frame.y, rotateX, rotateY, transformStyle: "preserve-3d" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`relative group rounded-sm overflow-hidden shadow-2xl shadow-black/80 border-4 border-[#1a1a1a] cursor-pointer perspective-1000 ${idx === 1 ? 'md:-mt-20' : 'md:mt-10'}`}
+    >
+      <div 
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" 
+        style={{ backgroundImage: `url(${frame.url})`, transform: "translateZ(-20px)" }}
+      ></div>
+      
+      {/* Glare effect */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 mix-blend-overlay pointer-events-none transition-opacity duration-300"
+        style={{
+          translateX: useTransform(mouseXSpring, [-0.5, 0.5], ["-100%", "100%"]),
+          translateY: useTransform(mouseYSpring, [-0.5, 0.5], ["-100%", "100%"]),
+        }}
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" style={{ transform: "translateZ(10px)" }}></div>
+      
+      <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500" style={{ transform: "translateZ(30px)" }}>
+        <h3 className="text-2xl font-serif text-white tracking-wide">{frame.title}</h3>
+        <div className="w-8 h-[2px] bg-secondary mt-3 group-hover:w-16 transition-all duration-500"></div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Frames = () => {
   const navigate = useNavigate();
   const frameData = shopProducts.find((p) => p.id === 'wd-1');
@@ -100,24 +161,11 @@ const Frames = () => {
           </motion.p>
         </motion.div>
 
+
         {/* 3 Floating Frames Showcase */}
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-4 h-[60vh] md:h-[500px]">
           {showcaseFrames.map((frame, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: frame.delay, type: "spring", bounce: 0.3 }}
-              style={{ y: frame.y }}
-              className={`relative group rounded-xl overflow-hidden shadow-2xl shadow-black border border-white/10 ${idx === 1 ? 'md:-mt-20' : 'md:mt-10'}`}
-            >
-              <div className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" style={{ backgroundImage: `url(${frame.url})` }}></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-              <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="text-xl font-serif text-white tracking-wide">{frame.title}</h3>
-                <div className="w-8 h-[1px] bg-secondary mt-3 group-hover:w-16 transition-all duration-500"></div>
-              </div>
-            </motion.div>
+            <TiltFrameCard key={idx} frame={frame} idx={idx} />
           ))}
         </div>
       </section>
