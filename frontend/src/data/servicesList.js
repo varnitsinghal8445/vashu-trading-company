@@ -61,6 +61,7 @@ export const allServices = [
     shortDesc: 'A vibrant and playful cinematic capture of your beautiful Haldi moments.',
     longDesc: 'The Haldi ceremony is full of colors, laughter, and playful moments. We create a dedicated mini-film focusing purely on the vibrant energy of this beautiful tradition.',
     image: 'https://images.unsplash.com/photo-1627555694723-1eeaa4847e00?q=80&w=2070&auto=format&fit=crop',
+    video: '/assets/haldi-film.mp4',
     features: ['Vibrant color grading', 'Candid captures', 'Emotional moments', 'Slow-motion highlights'],
     startingPrice: '₹12,000',
     builderTarget: 'services'
