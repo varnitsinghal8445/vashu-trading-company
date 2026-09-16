@@ -58,8 +58,21 @@ const Album = () => {
       </section>
 
       {/* ALBUM MAKING VIDEO SECTION */}
-      <section className="relative z-10 py-20 px-4">
-        <AlbumVideoBox videoSrc="https://vimeo.com/712398501" /> {/* Example premium cinematic video link */}
+      <section className="relative z-10 py-10 px-4 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+          <AlbumVideoBox 
+            videoSrc="https://vimeo.com/712398501" 
+            title="The Making of Your Album"
+            desc="From carefully selected photographs to handcrafted pages, every album is created to preserve your story."
+            bgImage="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=1000&auto=format&fit=crop"
+          />
+          <AlbumVideoBox 
+            videoSrc="https://vimeo.com/712398501" 
+            title="Behind the Scenes"
+            desc="Watch our master craftsmen bind, stitch, and finish your luxury memory collection."
+            bgImage="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop"
+          />
+        </div>
       </section>
 
       {/* THE ALBUM EXPERIENCE / CONFIGURATOR */}
