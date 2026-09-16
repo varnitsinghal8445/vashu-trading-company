@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = `*New Inquiry via Contact Page*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Event Date:* ${formData.date}%0A*Message:* ${formData.message}`;
-    window.open(`https://wa.me/918445100650?text=${text}`, '_blank');
+    window.open(`https://wa.me/919627376375?text=${text}`, '_blank');
   };
 
   return (
@@ -83,7 +83,7 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-secondary mt-1 mr-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Call Us</h3>
-                    <p className="text-gray-400 font-light">+91 84451 00650<br />+91 98765 43210</p>
+                    <p className="text-gray-400 font-light">+91 96273 76375<br />+91 97618 41098</p>
                   </div>
                 </div>
 
