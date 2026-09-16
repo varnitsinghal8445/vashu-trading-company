@@ -74,13 +74,13 @@ body {
 
 
 /* 3D and Perspective utilities for Albums Studio */
-.perspective-\\[2000px\\] {
+.perspective-\[2000px\] {
   perspective: 2000px;
 }
-.perspective-\\[1500px\\] {
+.perspective-\[1500px\] {
   perspective: 1500px;
 }
-.perspective-\\[1000px\\] {
+.perspective-\[1000px\] {
   perspective: 1000px;
 }
 .preserve-3d {
@@ -98,6 +98,6 @@ body {
 .rotate-y-90 {
   transform: rotateY(90deg);
 }
-.translate-z-\\[10px\\] {
+.translate-z-\[10px\] {
   transform: translateZ(10px);
 }
