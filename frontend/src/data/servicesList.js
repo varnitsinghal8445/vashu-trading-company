@@ -14,6 +14,7 @@ export const allServices = [
     shortDesc: 'Your wedding day, transformed into a cinematic story you\'ll want to watch again and again.',
     longDesc: 'Our wedding films go beyond simple videography. We craft a narrative-driven cinematic experience, meticulously editing the most emotional, joyous, and significant moments of your celebration into a timeless movie.',
     image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop',
+    video: '/assets/wedding-films-bg.mp4',
     features: ['Multi-camera setup', 'Cinematic color grading', 'Professional audio capture', '30-45 minute feature length'],
     startingPrice: '₹50,000',
     builderTarget: 'services' // Where it routes in the builder
