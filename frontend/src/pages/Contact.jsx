@@ -72,9 +72,9 @@ const Contact = () => {
                   <div>
                     <h3 className="font-serif text-xl text-white mb-2">Visit Us</h3>
                     <p className="text-gray-400 font-light leading-relaxed">
-                      123 Photography Lane<br />
-                      Creative District<br />
-                      New Delhi, India 110001
+                      Durga Photo Studio<br />
+                      On Road Ambedkar Market<br />
+                      Thana Bhawan, Shamli (U.P.) - 247777
                     </p>
                   </div>
                 </div>
@@ -230,7 +230,7 @@ const Contact = () => {
           className="mt-32 w-full h-[400px] border border-white/10 p-2 bg-[#0f0f0f] rounded-sm grayscale-[80%] hover:grayscale-0 transition-all duration-1000"
         >
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3502.065538571872!2d77.227321!3d28.6277962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd3326164477%3A0xb304918e7e1f74a0!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            src="https://www.google.com/maps?q=Durga+Photo+Studio,+Ambedkar+Market,+Thana+Bhawan,+Shamli,+UP&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(80%) contrast(120%)' }} 
