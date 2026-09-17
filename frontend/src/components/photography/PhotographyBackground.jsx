@@ -19,16 +19,15 @@ const PhotographyBackground = () => {
     <div className="fixed inset-0 z-0 overflow-hidden bg-[#050505]">
       {/* Very romantic, unique cinematic background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
+        className="absolute inset-0 bg-cover bg-center opacity-70"
         style={{ 
-          backgroundImage: 'url("/assets/luxury-photography-bg.jpg")',
-          filter: 'brightness(0.7)'
+          backgroundImage: 'url("/assets/luxury-photography-bg.jpg")'
         }}
       />
       
-      {/* Gradient overlays to ensure text remains highly readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/90 via-[#0a0505]/60 to-[#050505]/90" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/15 via-transparent to-transparent opacity-40" />
+      {/* Gradient overlays to ensure text remains readable but doesn't hide image */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-[#0a0505]/40 to-[#050505]/80" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/10 via-transparent to-transparent opacity-30" />
 
       {/* Floating Animated Particles */}
       {particles.map((particle) => (
