@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PageWrapper from '../components/layout/PageWrapper';
 import PhotographyHero from '../components/photography/PhotographyHero';
+import PhotographyBackground from '../components/photography/PhotographyBackground';
 import PhotographyTimeline from '../components/photography/PhotographyTimeline';
 import PhotographyMomentsBetween from '../components/photography/PhotographyMomentsBetween';
 import PhotographyChooseMoment from '../components/photography/PhotographyChooseMoment';
@@ -14,7 +15,8 @@ const Photography = () => {
   }, []);
 
   return (
-    <PageWrapper className="p-0 bg-[#050505]">
+    <PageWrapper className="p-0 bg-transparent relative">
+      <PhotographyBackground />
       <PhotographyHero />
       <PhotographyTimeline />
       <PhotographyMomentsBetween />

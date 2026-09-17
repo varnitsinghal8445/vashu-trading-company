@@ -10,7 +10,7 @@ const PhotographyHero = () => {
   const yText = useTransform(scrollYProgress, [0, 0.2], [0, 50]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-[#050505] flex items-center justify-center">
+    <section className="relative w-full h-screen overflow-hidden bg-transparent flex items-center justify-center">
       
       {/* Parallax Background Image */}
       <motion.div 

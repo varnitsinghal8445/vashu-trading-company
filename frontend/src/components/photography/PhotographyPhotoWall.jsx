@@ -11,7 +11,7 @@ const PhotographyPhotoWall = () => {
   const y4 = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <section className="bg-[#070707] py-24 md:py-40 overflow-hidden relative border-t border-white/5">
+    <section className="bg-transparent py-24 md:py-40 overflow-hidden relative border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-20 relative z-20">

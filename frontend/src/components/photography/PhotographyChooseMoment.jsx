@@ -21,7 +21,7 @@ const PhotographyChooseMoment = () => {
   const filteredPhotos = allPhotos.filter(photo => photo.cat === activeTab);
 
   return (
-    <section className="bg-[#050505] py-24 md:py-32">
+    <section className="bg-transparent py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">

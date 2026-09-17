@@ -36,7 +36,7 @@ const moments = [
 
 const PhotographyMomentsBetween = () => {
   return (
-    <section className="bg-[#0a0a0a] py-24 md:py-32 overflow-hidden border-t border-white/5">
+    <section className="bg-transparent py-24 md:py-32 overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div 

@@ -4,7 +4,7 @@ import { Play } from 'lucide-react';
 
 const PhotographyVideoFilm = () => {
   return (
-    <section className="bg-[#050505] py-24 md:py-32 border-t border-white/5">
+    <section className="bg-transparent py-24 md:py-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">

@@ -99,7 +99,7 @@ const TimelineSection = ({ data, index }) => {
 
 const PhotographyTimeline = () => {
   return (
-    <section className="bg-[#070707] py-24 overflow-hidden">
+    <section className="bg-transparent py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         <motion.div 

@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 const PhotographyCTA = () => {
   return (
-    <section className="bg-[#050505] py-32 relative overflow-hidden flex items-center justify-center text-center">
+    <section className="bg-transparent py-32 relative overflow-hidden flex items-center justify-center text-center">
       
       {/* Background with slight gradient to transition to footer */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#111]" />
