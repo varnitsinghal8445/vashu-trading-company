@@ -19,10 +19,10 @@ const PhotographyBackground = () => {
     <div className="fixed inset-0 z-0 overflow-hidden bg-[#050505]">
       {/* Very romantic, unique cinematic background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-luminosity"
+        className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
         style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2000&auto=format&fit=crop")',
-          filter: 'blur(3px) brightness(0.6)'
+          backgroundImage: 'url("/assets/luxury-photography-bg.jpg")',
+          filter: 'brightness(0.7)'
         }}
       />
       
