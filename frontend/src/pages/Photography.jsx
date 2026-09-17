@@ -17,13 +17,15 @@ const Photography = () => {
   return (
     <PageWrapper className="p-0 bg-transparent relative">
       <PhotographyBackground />
-      <PhotographyHero />
-      <PhotographyTimeline />
-      <PhotographyMomentsBetween />
-      <PhotographyChooseMoment />
-      <PhotographyPhotoWall />
-      <PhotographyVideoFilm />
-      <PhotographyCTA />
+      <div className="relative z-10">
+        <PhotographyHero />
+        <PhotographyTimeline />
+        <PhotographyMomentsBetween />
+        <PhotographyChooseMoment />
+        <PhotographyPhotoWall />
+        <PhotographyVideoFilm />
+        <PhotographyCTA />
+      </div>
     </PageWrapper>
   );
 };

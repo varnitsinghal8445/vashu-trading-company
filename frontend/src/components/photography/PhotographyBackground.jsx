@@ -16,7 +16,7 @@ const PhotographyBackground = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#050505]">
+    <div className="fixed inset-0 z-0 overflow-hidden bg-[#050505]">
       {/* Very romantic, unique cinematic background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-luminosity"
