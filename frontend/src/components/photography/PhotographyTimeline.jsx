@@ -6,8 +6,8 @@ const timelineData = [
     id: '01',
     title: 'The Arrival',
     subtitle: 'Bride & Groom Preparation',
-    image1: 'https://images.unsplash.com/photo-1583939000240-692797746777?q=80&w=1000&auto=format&fit=crop', // Beautiful Indian bride
-    image2: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1000&auto=format&fit=crop', // Details/Prep
+    image1: 'https://images.unsplash.com/photo-1544717685-61883584ef70?q=80&w=1000&auto=format&fit=crop', // Cinematic bride prep
+    image2: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop', // Elegant wedding details
     desc: 'The quiet anticipation before the storm of emotions. The small details, the nervous smiles, the final touches.',
     layout: 'left'
   },
