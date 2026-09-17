@@ -15,7 +15,7 @@ const timelineData = [
     id: '02',
     title: 'The First Look',
     subtitle: 'Anticipation & Emotions',
-    image1: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop', // Romantic cinematic couple
+    image1: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1000&auto=format&fit=crop', // Romantic sunset couple
     image2: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop', // Silhouette kiss
     desc: 'A private moment suspended in time. Seeing each other for the first time, realizing forever starts today.',
     layout: 'right'
