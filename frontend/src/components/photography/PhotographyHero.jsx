@@ -16,7 +16,7 @@ const PhotographyHero = () => {
       <motion.div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070&auto=format&fit=crop")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop")',
           y: yParallax,
           scale: scaleImage
         }}
