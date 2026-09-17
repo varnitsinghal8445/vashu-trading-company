@@ -6,8 +6,8 @@ const timelineData = [
     id: '01',
     title: 'The Arrival',
     subtitle: 'Bride & Groom Preparation',
-    image1: 'https://images.unsplash.com/photo-1596489370823-3e74d1c4793b?q=80&w=1000&auto=format&fit=crop', // Bride prep
-    image2: 'https://images.unsplash.com/photo-1607557165037-4d929bcf00e8?q=80&w=1000&auto=format&fit=crop', // Details/Rings
+    image1: 'https://images.unsplash.com/photo-1583939000240-692797746777?q=80&w=1000&auto=format&fit=crop', // Beautiful Indian bride
+    image2: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1000&auto=format&fit=crop', // Details/Prep
     desc: 'The quiet anticipation before the storm of emotions. The small details, the nervous smiles, the final touches.',
     layout: 'left'
   },
@@ -15,8 +15,8 @@ const timelineData = [
     id: '02',
     title: 'The First Look',
     subtitle: 'Anticipation & Emotions',
-    image1: 'https://images.unsplash.com/photo-1538356111053-748a48e1acb8?q=80&w=1000&auto=format&fit=crop', // Couple
-    image2: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop', // Romantic
+    image1: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop', // Romantic cinematic couple
+    image2: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop', // Silhouette kiss
     desc: 'A private moment suspended in time. Seeing each other for the first time, realizing forever starts today.',
     layout: 'right'
   },
@@ -24,7 +24,7 @@ const timelineData = [
     id: '03',
     title: 'The Ceremony',
     subtitle: 'Rituals & Promises',
-    image1: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop', // Ceremony
+    image1: 'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000&auto=format&fit=crop', // Venue/Mandap with lights
     image2: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1000&auto=format&fit=crop', // Wide shot
     desc: 'Surrounded by loved ones, sacred vows are exchanged. The beautiful culmination of two families becoming one.',
     layout: 'left'
@@ -33,8 +33,8 @@ const timelineData = [
     id: '04',
     title: 'The Celebration',
     subtitle: 'Dance, Music & Joy',
-    image1: 'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?q=80&w=1000&auto=format&fit=crop', // Dance/Party
-    image2: 'https://images.unsplash.com/photo-1530103862676-de8892bf30b8?q=80&w=1000&auto=format&fit=crop', // Celebration
+    image1: 'https://images.unsplash.com/photo-1530103862676-de8892bf30b8?q=80&w=1000&auto=format&fit=crop', // Sparklers/Celebration
+    image2: 'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?q=80&w=1000&auto=format&fit=crop', // Dance floor
     desc: 'Letting go of the nerves and embracing the joy. Music, laughter, and a night that nobody wants to end.',
     layout: 'right'
   }
