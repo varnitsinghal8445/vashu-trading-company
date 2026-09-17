@@ -18,13 +18,15 @@ const PhotographyHero = () => {
         style={{ 
           backgroundImage: 'url("https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop")',
           y: yParallax,
-          scale: scaleImage
+          scale: scaleImage,
+          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
         }}
       />
 
       {/* Cinematic Overlays */}
       <div className="absolute inset-0 z-0 bg-black/40" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#050505]/30 via-transparent to-[#050505]" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-transparent pointer-events-none" />
       
       {/* Film Grain & Texture */}
       <div className="absolute inset-0 z-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/noisy.png")' }}></div>
