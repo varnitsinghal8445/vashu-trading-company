@@ -12,36 +12,53 @@ const PhotographyHero = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden bg-transparent flex items-center justify-center">
       
-      {/* Parallax Background Image */}
-      <motion.div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop")',
-          y: yParallax,
-          scale: scaleImage,
+      {/* Background Layers Wrapper - Masked to fade into the page background */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
           WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
           maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
         }}
-      />
+      >
+        {/* Parallax Background Image */}
+        <motion.div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: 'url("https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop")',
+            y: yParallax,
+            scale: scaleImage
+          }}
+        />
 
-      {/* Cinematic Overlays */}
-      <div className="absolute inset-0 z-0 bg-black/40" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-transparent pointer-events-none" />
-      
-      {/* Film Grain & Texture */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/noisy.png")' }}></div>
+        {/* Cinematic Overlays */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-transparent" />
+        
+        {/* Film Grain & Texture */}
+        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/noisy.png")' }}></div>
 
-      {/* Light Leaks */}
-      <motion.div
-        animate={{ 
-          opacity: [0.1, 0.3, 0.1],
-          scale: [1, 1.2, 1],
-          x: [0, 50, 0],
-          y: [0, -30, 0]
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-[10%] w-[50vw] h-[50vw] bg-secondary/30 rounded-full blur-[150px] mix-blend-screen pointer-events-none"
-      />
+        {/* Light Leaks */}
+        <motion.div
+          animate={{ 
+            opacity: [0.1, 0.3, 0.1],
+            scale: [1, 1.2, 1],
+            x: [0, 50, 0],
+            y: [0, -30, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-secondary/20 rounded-full blur-[120px] mix-blend-screen"
+        />
+        <motion.div
+          animate={{ 
+            opacity: [0.1, 0.25, 0.1],
+            scale: [1, 1.5, 1],
+            x: [0, -40, 0],
+            y: [0, 40, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-amber-600/10 rounded-full blur-[100px] mix-blend-screen"
+        />
+      </div>
 
       {/* Typography Content */}
       <motion.div 
