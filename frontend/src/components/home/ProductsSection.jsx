@@ -25,28 +25,7 @@ const products = [
 
 const ProductsSection = () => {
   return (
-    <section className="relative py-24 bg-[#0a0a0a] overflow-hidden" id="products">
-      
-      {/* Simple, Cute Wedding Image Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.img 
-          src="/dreamy_wedding_bg.jpg" 
-          alt="Dreamy Wedding Background"
-          className="w-full h-full object-cover"
-          animate={{
-            scale: [1, 1.05, 1],
-            opacity: [0.6, 0.75, 0.6],
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      </div>
-      
-      {/* High Contrast Overlay: Ensures text readability without making the image too dark */}
-      <div className="absolute inset-0 bg-[#0a0a0a]/60 pointer-events-none z-0"></div>
+    <section className="relative py-24 bg-black overflow-hidden" id="products">
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 

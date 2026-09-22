@@ -15,6 +15,8 @@ import paymentRoutes from './routes/paymentRoutes.js';
 import leadRoutes from './routes/leadRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import reviewRoutes from './routes/reviewRoutes.js';
+import printOrderRoutes from './routes/printOrderRoutes.js';
 
 dotenv.config();
 
@@ -44,6 +46,8 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/leads', leadRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/print-orders', printOrderRoutes);
 
 app.get('/', (req, res) => {
   res.send('Vasu Trading Company API is running...');
@@ -54,4 +58,10 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
+// If we are not running on Vercel, start the local server
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
+}
+
+// Export the Express API for Vercel
+export default app;

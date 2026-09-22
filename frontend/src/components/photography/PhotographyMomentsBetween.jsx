@@ -4,31 +4,31 @@ import { motion } from 'framer-motion';
 const moments = [
   {
     id: 1,
-    img: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop', // rings
+    img: '/assets/album_story_1_1789587460396.jpg', 
     title: 'The Little Things',
     className: 'md:absolute md:top-[10%] md:left-[5%] md:w-64 md:h-80 rotate-[-4deg] z-10',
   },
   {
     id: 2,
-    img: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=800&auto=format&fit=crop', // hands
+    img: '/assets/album_story_2_1789587471642.jpg', 
     title: 'The Touch',
     className: 'md:absolute md:top-[40%] md:left-[25%] md:w-72 md:h-96 rotate-[3deg] z-30',
   },
   {
     id: 3,
-    img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop', // bride smiling/laughing
+    img: '/assets/album_story_3_1789587607665.jpg', 
     title: 'The Laughter',
     className: 'md:absolute md:top-[5%] md:right-[15%] md:w-[400px] md:h-[500px] rotate-[1deg] z-20',
   },
   {
     id: 4,
-    img: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=800&auto=format&fit=crop', // details/flowers
+    img: '/assets/album_story_4_1789587629937.jpg', 
     title: 'The Details',
     className: 'md:absolute md:bottom-[5%] md:left-[10%] md:w-56 md:h-64 rotate-[-6deg] z-20',
   },
   {
     id: 5,
-    img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop', // emotional look
+    img: '/assets/album_story_5_1789587642778.jpg', 
     title: 'The Look',
     className: 'md:absolute md:bottom-[15%] md:right-[20%] md:w-80 md:h-80 rotate-[4deg] z-40',
   }

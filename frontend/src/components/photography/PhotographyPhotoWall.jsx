@@ -42,7 +42,7 @@ const PhotographyPhotoWall = () => {
             style={{ y: y1 }}
             className="absolute top-[20%] left-[10%] right-[10%] md:left-[25%] md:right-[25%] h-[400px] md:h-[600px] z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden border border-white/5"
           >
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1500&auto=format&fit=crop" className="w-full h-full object-cover grayscale-[20%]" alt="Wedding Wall Main" />
+            <img src="/dreamy_wedding_bg.jpg" className="w-full h-full object-cover grayscale-[20%]" alt="Dreamy Wedding Wall Main" />
           </motion.div>
 
           {/* Floating Image 1 (Top Left) */}
@@ -50,7 +50,7 @@ const PhotographyPhotoWall = () => {
             style={{ y: y2 }}
             className="absolute top-[5%] left-[5%] md:left-[10%] w-[200px] md:w-[350px] aspect-square z-20 shadow-2xl rounded-sm overflow-hidden border-4 border-[#070707] rotate-[-5deg]"
           >
-            <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover" alt="Wall Detail 1" />
+            <img src="/journey_bg_romantic.jpg" className="w-full h-full object-cover" alt="Romantic Journey Detail" />
           </motion.div>
 
           {/* Floating Image 2 (Top Right) */}
@@ -58,7 +58,7 @@ const PhotographyPhotoWall = () => {
             style={{ y: y3 }}
             className="absolute top-[15%] right-[5%] md:right-[5%] w-[150px] md:w-[250px] aspect-[3/4] z-0 shadow-xl rounded-sm overflow-hidden border border-white/10 rotate-[8deg]"
           >
-            <img src="https://images.unsplash.com/photo-1538356111053-748a48e1acb8?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover" alt="Wall Detail 2" />
+            <img src="/family-bg.jpg" className="w-full h-full object-cover" alt="Family Moments Detail" />
           </motion.div>
 
           {/* Floating Image 3 (Bottom Left) */}
@@ -66,7 +66,7 @@ const PhotographyPhotoWall = () => {
             style={{ y: y4 }}
             className="absolute bottom-[15%] left-[2%] md:left-[15%] w-[180px] md:w-[300px] aspect-[4/3] z-20 shadow-2xl rounded-sm overflow-hidden border border-white/5 rotate-[3deg]"
           >
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover" alt="Wall Detail 3" />
+            <img src="/cinematic-wedding-memories-bg.jpg" className="w-full h-full object-cover" alt="Cinematic Memories Detail" />
           </motion.div>
 
           {/* Floating Image 4 (Bottom Right) */}
@@ -74,7 +74,7 @@ const PhotographyPhotoWall = () => {
             style={{ y: y2 }}
             className="absolute bottom-[25%] right-[2%] md:right-[15%] w-[220px] md:w-[400px] aspect-video z-30 shadow-[0_30px_60px_rgba(0,0,0,0.6)] rounded-sm overflow-hidden border-8 border-[#070707] rotate-[-2deg]"
           >
-            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover" alt="Wall Detail 4" />
+            <img src="/testimonials-bg.jpg" className="w-full h-full object-cover" alt="Happy Couple Detail" />
           </motion.div>
 
         </div>

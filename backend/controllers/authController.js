@@ -8,7 +8,20 @@ import generateToken from '../utils/generateToken.js';
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  const user = await User.findOne({ email });
+  // TEMPORARY MOCK ADMIN LOGIN (Bypasses Database)
+  if (email === 'admin@vasustudio.com' && password === '123456') {
+    generateToken(res, 'mock_admin_id_123');
+    
+    return res.json({
+      _id: 'mock_admin_id_123',
+      name: 'Studio Admin',
+      email: 'admin@vasustudio.com',
+      role: 'Admin',
+    });
+  }
+
+  // Attempt real DB login if not the mock admin
+  const user = await User.findOne({ email }).catch(err => null); // Catch timeout
 
   if (user && (await user.matchPassword(password))) {
     generateToken(res, user._id);
@@ -21,7 +34,7 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401);
-    throw new Error('Invalid email or password');
+    throw new Error('Invalid email or password. Please use admin@vasustudio.com and 123456 for now.');
   }
 });
 

@@ -23,6 +23,7 @@ const AdminLayout = ({ children }) => {
     { name: 'Galleries', icon: <ImageIcon size={18} />, path: '/admin/galleries' },
     { name: 'Products', icon: <Box size={18} />, path: '/admin/products' },
     { name: 'Printing', icon: <Printer size={18} />, path: '/admin/printing' },
+    { name: 'Print Orders', icon: <Printer size={18} />, path: '/admin/print-orders' },
     { name: 'Frames', icon: <Square size={18} />, path: '/admin/frames' },
     { name: 'Orders', icon: <ShoppingBag size={18} />, path: '/admin/orders' },
     { name: 'Payments', icon: <CreditCard size={18} />, path: '/admin/payments' },

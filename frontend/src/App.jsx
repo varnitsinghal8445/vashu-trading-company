@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import ScrollToTop from './components/layout/ScrollToTop';
 import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/layout/ProtectedRoute';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -37,11 +40,9 @@ class ErrorBoundary extends React.Component {
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
-import Journey from './pages/Journey';
 import Services from './pages/Services';
 import Photography from './pages/Photography';
 import Albums from './pages/Albums';
-import Photobooks from './pages/Photobooks';
 import Frames from './pages/Frames';
 import PhotoPrinting from './pages/PhotoPrinting';
 import Reviews from './pages/Reviews';
@@ -57,13 +58,19 @@ import DashboardOverview from './pages/admin/DashboardOverview';
 import LeadsManager from './pages/admin/LeadsManager';
 import EventCalendar from './pages/admin/EventCalendar';
 import CustomerView from './pages/admin/CustomerView';
+import ReviewsManager from './pages/admin/ReviewsManager';
+import PrintOrdersManager from './pages/admin/PrintOrdersManager';
 import AIAlbumSelection from './pages/album/AIAlbumSelection';
+import SubmitReview from './pages/review/SubmitReview';
 import WhatsAppCTA from './components/layout/WhatsAppCTA';
+import AdminLogin from './pages/admin/AdminLogin';
 
 function App() {
   return (
-    <CartProvider>
+    <AuthProvider>
+      <CartProvider>
       <Router>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen bg-[#0a0a0a]">
           <Navbar />
           <main className="flex-grow">
@@ -71,14 +78,13 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/journey" element={<Journey />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/photography" element={<Photography />} />
                 <Route path="/albums" element={<Albums />} />
-                <Route path="/photobooks" element={<Photobooks />} />
                 <Route path="/frames" element={<Frames />} />
                 <Route path="/photo-printing" element={<PhotoPrinting />} />
                 <Route path="/reviews" element={<Reviews />} />
+                <Route path="/review" element={<SubmitReview />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/book-now" element={<BookNow />} />
                 {/* Added for Phase 5 & 6 */}
@@ -89,12 +95,21 @@ function App() {
                 <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/dashboard" element={<CustomerDashboard />} />
-                {/* Added for Phase 8: Admin */}
-                <Route path="/admin" element={<DashboardOverview />} />
-                <Route path="/admin/leads" element={<LeadsManager />} />
-                <Route path="/admin/bookings" element={<EventCalendar />} />
-                <Route path="/admin/customers" element={<CustomerView />} />
-                <Route path="/admin/customers/:id" element={<CustomerView />} />
+                
+                {/* Public Admin Login */}
+                <Route path="/admin/login" element={<AdminLogin />} />
+
+                {/* Protected Admin Routes */}
+                <Route element={<ProtectedRoute adminOnly={true} />}>
+                  <Route path="/admin" element={<DashboardOverview />} />
+                  <Route path="/admin/leads" element={<LeadsManager />} />
+                  <Route path="/admin/reviews" element={<ReviewsManager />} />
+                  <Route path="/admin/print-orders" element={<PrintOrdersManager />} />
+                  <Route path="/admin/bookings" element={<EventCalendar />} />
+                  <Route path="/admin/customers" element={<CustomerView />} />
+                  <Route path="/admin/customers/:id" element={<CustomerView />} />
+                </Route>
+                
                 {/* Added for Phase 10: AI Album Selection */}
                 <Route path="/album/ai-selection" element={<AIAlbumSelection />} />
               </Routes>
@@ -104,7 +119,8 @@ function App() {
           <WhatsAppCTA />
         </div>
       </Router>
-    </CartProvider>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

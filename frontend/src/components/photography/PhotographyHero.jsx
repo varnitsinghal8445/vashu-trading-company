@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+
+const heroImages = [
+  '/images/ai-wedding/photography_hero_bg.jpg',
+  '/images/ai-wedding/ceremony_large_1790110908785.jpg',
+  '/images/ai-wedding/couple_large_1790110935148.jpg',
+  '/images/ai-wedding/arrival_large_1790110816035.jpg',
+  '/images/ai-wedding/haldi_large_1790110842290.jpg',
+  '/images/ai-wedding/family_large_1790110958648.jpg'
+];
 
 const PhotographyHero = () => {
   const { scrollYProgress } = useScroll();
@@ -8,6 +17,15 @@ const PhotographyHero = () => {
   const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const opacityText = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const yText = useTransform(scrollYProgress, [0, 0.2], [0, 50]);
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 12000); // Change image every 12 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-transparent flex items-center justify-center">
@@ -20,19 +38,41 @@ const PhotographyHero = () => {
           maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
         }}
       >
-        {/* Parallax Background Image */}
+        {/* Parallax Background Images Slideshow */}
         <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0"
           style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop")',
             y: yParallax,
             scale: scaleImage
           }}
-        />
+        >
+          {heroImages.map((img, index) => {
+            const isActive = currentImageIndex === index;
+            const isPrev = (currentImageIndex - 1 + heroImages.length) % heroImages.length === index;
+            
+            let zIndex = 0;
+            if (isActive) zIndex = 20;
+            else if (isPrev) zIndex = 10;
+
+            return (
+              <div
+                key={img}
+                className="absolute inset-0 bg-cover bg-center transition-opacity duration-[2500ms] ease-in-out"
+                style={{ 
+                  backgroundImage: `url("${img}")`,
+                  opacity: isActive || isPrev ? 1 : 0,
+                  zIndex 
+                }}
+              />
+            );
+          })}
+        </motion.div>
 
         {/* Cinematic Overlays */}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-black/30" />
+        {/* Radial gradient to darken only the center behind the text */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.7)_0%,_transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#050505]/80" />
         
         {/* Film Grain & Texture */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/noisy.png")' }}></div>
@@ -78,7 +118,7 @@ const PhotographyHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: 'easeOut' }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif text-white tracking-wide leading-tight drop-shadow-2xl"
+          className="text-5xl md:text-7xl lg:text-8xl font-serif text-white tracking-wide leading-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]"
         >
           Every Love Story Deserves To Be <br className="hidden md:block"/> 
           <span className="italic text-white/90">Remembered.</span>

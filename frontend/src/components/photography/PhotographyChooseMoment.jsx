@@ -4,15 +4,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 const categories = ['LOVE', 'FAMILY', 'EMOTIONS', 'CELEBRATION', 'DETAILS', 'CANDIDS'];
 
 const allPhotos = [
-  { id: 1, cat: 'LOVE', src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop' },
-  { id: 2, cat: 'FAMILY', src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop' },
-  { id: 3, cat: 'EMOTIONS', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop' },
-  { id: 4, cat: 'CELEBRATION', src: 'https://images.unsplash.com/photo-1530103862676-de8892bf30b8?q=80&w=800&auto=format&fit=crop' },
-  { id: 5, cat: 'DETAILS', src: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=800&auto=format&fit=crop' },
-  { id: 6, cat: 'CANDIDS', src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop' },
-  { id: 7, cat: 'LOVE', src: 'https://images.unsplash.com/photo-1538356111053-748a48e1acb8?q=80&w=800&auto=format&fit=crop' },
-  { id: 8, cat: 'FAMILY', src: 'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?q=80&w=800&auto=format&fit=crop' },
-  { id: 9, cat: 'EMOTIONS', src: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop' },
+  // LOVE
+  { id: 1, cat: 'LOVE', src: '/assets/prewedding_album_1_1789587891262.jpg' },
+  { id: 2, cat: 'LOVE', src: '/journey_bg_romantic.jpg' },
+  { id: 3, cat: 'LOVE', src: '/dreamy_wedding_bg.jpg' },
+  
+  // FAMILY
+  { id: 4, cat: 'FAMILY', src: '/images/ai-wedding/family_large_1790110958648.jpg' },
+  { id: 5, cat: 'FAMILY', src: '/images/ai-wedding/haldi_large_1790110842290.jpg' },
+  { id: 6, cat: 'FAMILY', src: '/images/ai-wedding/mehndi_large_1790110868877.jpg' },
+  
+  // EMOTIONS
+  { id: 7, cat: 'EMOTIONS', src: '/images/ai-wedding/couple_large_1790110935148.jpg' },
+  { id: 8, cat: 'EMOTIONS', src: '/images/ai-wedding/haldi_small_1790110853050.jpg' },
+  { id: 9, cat: 'EMOTIONS', src: '/images/ai-wedding/arrival_small_1790110830739.jpg' },
+  
+  // CELEBRATION
+  { id: 10, cat: 'CELEBRATION', src: '/images/ai-wedding/arrival_large_1790110816035.jpg' },
+  { id: 11, cat: 'CELEBRATION', src: '/assets/album_story_4_1789587629937.jpg' },
+  { id: 12, cat: 'CELEBRATION', src: '/assets/album_story_3_1789587607665.jpg' },
+  
+  // DETAILS
+  { id: 13, cat: 'DETAILS', src: '/assets/album_story_1_1789587460396.jpg' },
+  { id: 14, cat: 'DETAILS', src: '/images/ai-wedding/couple_small_1790110948339.jpg' },
+  { id: 15, cat: 'DETAILS', src: '/images/ai-wedding/ceremony_small_1790110921505.jpg' },
+  
+  // CANDIDS
+  { id: 16, cat: 'CANDIDS', src: '/images/ai-wedding/family_small_1790110972742.jpg' },
+  { id: 17, cat: 'CANDIDS', src: '/images/ai-wedding/haldi_small_1790110853050.jpg' },
+  { id: 18, cat: 'CANDIDS', src: '/images/ai-wedding/mehndi_small_1790110882760.jpg' },
 ];
 
 const PhotographyChooseMoment = () => {

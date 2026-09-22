@@ -81,14 +81,14 @@ const WhatsAppOrderModal = ({ isOpen, onClose, product, selectedVariant, quantit
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="bg-white w-full max-w-md shadow-2xl relative flex flex-col max-h-[90vh] rounded-sm"
+          className="bg-[#0a0a0a] border border-white/10 w-full max-w-md shadow-2xl relative flex flex-col max-h-[90vh] rounded-sm"
         >
           {/* Header */}
-          <div className="flex justify-between items-center p-6 border-b border-gray-100">
-            <h3 className="text-xl font-serif text-gray-900">{isSuccess ? "Success" : "Enquire via WhatsApp"}</h3>
+          <div className="flex justify-between items-center p-6 border-b border-white/10">
+            <h3 className="text-xl font-serif text-white">{isSuccess ? "Success" : "Enquire via WhatsApp"}</h3>
             <button 
               onClick={handleClose}
-              className="text-gray-400 hover:text-gray-900 transition-colors"
+              className="text-gray-400 hover:text-white transition-colors"
             >
               <X size={20} />
             </button>
@@ -98,25 +98,25 @@ const WhatsAppOrderModal = ({ isOpen, onClose, product, selectedVariant, quantit
           <div className="p-6 overflow-y-auto">
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center py-8 text-center">
-                <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-6">
-                  <CheckCircle2 size={32} className="text-green-500" />
+                <div className="w-16 h-16 bg-green-900/30 rounded-full flex items-center justify-center mb-6">
+                  <CheckCircle2 size={32} className="text-green-400" />
                 </div>
-                <h4 className="text-2xl font-serif text-gray-900 mb-2">Item Added to Cart!</h4>
-                <p className="text-gray-500 text-sm mb-8 px-4">
+                <h4 className="text-2xl font-serif text-white mb-2">Item Added to Cart!</h4>
+                <p className="text-gray-400 text-sm mb-8 px-4">
                   Product selected successfully and added to your cart. We also opened WhatsApp so you can chat with us.
                 </p>
                 <div className="flex flex-col w-full gap-3">
                   <Link 
                     to="/checkout"
                     onClick={handleClose}
-                    className="w-full bg-gray-900 hover:bg-black text-white px-6 py-4 text-sm font-bold tracking-widest uppercase transition-colors flex items-center justify-center gap-3 rounded-sm shadow-md"
+                    className="w-full bg-secondary hover:bg-white text-black px-6 py-4 text-sm font-bold tracking-widest uppercase transition-colors flex items-center justify-center gap-3 rounded-sm shadow-md"
                   >
                     <ShoppingCart size={18} />
                     View Cart
                   </Link>
                   <button 
                     onClick={handleClose}
-                    className="w-full bg-white border border-gray-200 hover:border-gray-900 hover:text-gray-900 text-gray-500 px-6 py-4 text-sm font-bold tracking-widest uppercase transition-colors flex items-center justify-center rounded-sm"
+                    className="w-full bg-transparent border border-white/20 hover:border-white hover:text-white text-gray-400 px-6 py-4 text-sm font-bold tracking-widest uppercase transition-colors flex items-center justify-center rounded-sm"
                   >
                     Continue Shopping
                   </button>
@@ -125,15 +125,15 @@ const WhatsAppOrderModal = ({ isOpen, onClose, product, selectedVariant, quantit
             ) : (
               <>
                 {/* Product Summary */}
-            <div className="flex gap-4 mb-8 bg-gray-50 p-4 border border-gray-100 rounded-sm items-center">
+            <div className="flex gap-4 mb-8 bg-white/5 p-4 border border-white/10 rounded-sm items-center">
               {product.img && (
-                <div className="w-16 h-16 bg-white border border-gray-200 rounded-sm shrink-0 overflow-hidden">
+                <div className="w-16 h-16 bg-black border border-white/10 rounded-sm shrink-0 overflow-hidden">
                   <img src={product.img} alt={product.name} className="w-full h-full object-cover" />
                 </div>
               )}
               <div>
-                <p className="text-[10px] text-gray-500 uppercase tracking-widest">{product.category}</p>
-                <h4 className="font-semibold text-gray-900 leading-tight mb-1">{product.name}</h4>
+                <p className="text-[10px] text-gray-400 uppercase tracking-widest">{product.category}</p>
+                <h4 className="font-semibold text-white leading-tight mb-1">{product.name}</h4>
                 {selectedVariant && (
                   <p className="text-xs text-secondary font-medium">Variant: {selectedVariant}</p>
                 )}
@@ -142,26 +142,26 @@ const WhatsAppOrderModal = ({ isOpen, onClose, product, selectedVariant, quantit
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2 font-semibold">Your Name</label>
+                <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2 font-semibold">Your Name</label>
                 <input 
                   type="text" 
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Rahul Kumar"
-                  className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors rounded-sm"
+                  className="w-full bg-black/50 border border-white/20 text-white placeholder-gray-600 px-4 py-3 text-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors rounded-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2 font-semibold">Phone Number</label>
+                <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2 font-semibold">Phone Number</label>
                 <input 
                   type="tel" 
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="e.g. 9876543210"
-                  className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors rounded-sm"
+                  className="w-full bg-black/50 border border-white/20 text-white placeholder-gray-600 px-4 py-3 text-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors rounded-sm"
                 />
               </div>
 

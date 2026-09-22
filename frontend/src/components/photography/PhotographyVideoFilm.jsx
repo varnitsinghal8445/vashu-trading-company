@@ -32,30 +32,18 @@ const PhotographyVideoFilm = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="relative w-full aspect-video max-w-5xl mx-auto rounded-lg overflow-hidden group cursor-pointer shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10"
+          className="relative w-full aspect-video max-w-5xl mx-auto rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10"
         >
-          {/* Placeholder Image for Video */}
-          <img 
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop" 
-            alt="Wedding Film" 
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s] ease-out grayscale-[20%] group-hover:grayscale-0"
-          />
-          
-          {/* Overlays */}
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
-          <div className="absolute inset-0 opacity-10 mix-blend-overlay" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/noisy.png")' }}></div>
-
-          {/* Play Button */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div 
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white/20 transition-colors"
-            >
-              <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-2" fill="white" />
-            </motion.div>
-          </div>
-
+          <video 
+            className="w-full h-full object-cover"
+            controls
+            playsInline
+            preload="metadata"
+            poster="/cinematic-wedding-memories-bg-v2.jpg"
+          >
+            <source src="/assets/wedding-highlight.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </motion.div>
 
       </div>
