@@ -44,7 +44,7 @@ const SubmitReview = () => {
   const submitForm = async () => {
     setIsSubmitting(true);
     try {
-      await axios.post('http://localhost:5000/api/reviews', formData);
+      await axios.post('/api/reviews', formData);
       setStep(STEPS.SUCCESS);
     } catch (error) {
       console.error("Error submitting review:", error);

@@ -14,7 +14,7 @@ const ReviewsManager = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/reviews/admin');
+      const response = await axios.get('/api/reviews/admin');
       if (response.data.success) {
         setReviews(response.data.data);
       }
@@ -27,7 +27,7 @@ const ReviewsManager = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/reviews/${id}/status`, { status });
+      await axios.patch(`/api/reviews/${id}/status`, { status });
       // Update local state
       setReviews(reviews.map(r => r._id === id ? { ...r, status } : r));
     } catch (error) {
@@ -39,7 +39,7 @@ const ReviewsManager = () => {
   const deleteReview = async (id) => {
     if (!window.confirm("Are you sure you want to delete this review permanently?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/reviews/${id}`);
+      await axios.delete(`/api/reviews/${id}`);
       setReviews(reviews.filter(r => r._id !== id));
     } catch (error) {
       console.error("Error deleting review", error);

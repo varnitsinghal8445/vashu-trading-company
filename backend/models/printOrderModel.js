@@ -51,6 +51,7 @@ const printOrderSchema = new mongoose.Schema({
     city: { type: String, required: true },
     address: { type: String },
     specialInstructions: { type: String },
+    driveLink: { type: String },
   },
   deliveryMethod: {
     type: String,

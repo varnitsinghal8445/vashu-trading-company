@@ -15,7 +15,7 @@ const PrintOrdersManager = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/print-orders');
+      const response = await axios.get('/api/print-orders');
       if (response.data.success) {
         setOrders(response.data.data);
       }
@@ -28,7 +28,7 @@ const PrintOrdersManager = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/print-orders/${id}/status`, { status });
+      await axios.patch(`/api/print-orders/${id}/status`, { status });
       setOrders(orders.map(o => o._id === id ? { ...o, status } : o));
       if (selectedOrder && selectedOrder._id === id) {
         setSelectedOrder({ ...selectedOrder, status });
@@ -178,6 +178,15 @@ const PrintOrdersManager = () => {
               {selectedOrder.customerDetails.specialInstructions && (
                 <div className="p-6 bg-yellow-50 border-b border-yellow-100 text-yellow-800 text-sm">
                   <strong>Instructions: </strong> {selectedOrder.customerDetails.specialInstructions}
+                </div>
+              )}
+
+              {selectedOrder.customerDetails.driveLink && (
+                <div className="p-6 bg-blue-50 border-b border-blue-100 text-blue-800 text-sm">
+                  <strong>Cloud Link / ZIP File: </strong> 
+                  <a href={selectedOrder.customerDetails.driveLink} target="_blank" rel="noreferrer" className="underline hover:text-blue-900 break-all">
+                    {selectedOrder.customerDetails.driveLink}
+                  </a>
                 </div>
               )}
 

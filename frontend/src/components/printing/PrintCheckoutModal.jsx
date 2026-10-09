@@ -17,7 +17,8 @@ const PrintCheckoutModal = ({ isOpen, onClose, photos, totalAmount }) => {
     address: '',
     specialInstructions: '',
     deliveryMethod: 'Studio Pickup',
-    sameAsMobile: false
+    sameAsMobile: false,
+    driveLink: ''
   });
 
   if (!isOpen) return null;
@@ -48,6 +49,7 @@ const PrintCheckoutModal = ({ isOpen, onClose, photos, totalAmount }) => {
           city: formData.city,
           address: formData.address,
           specialInstructions: formData.specialInstructions,
+          driveLink: formData.driveLink,
         },
         deliveryMethod: formData.deliveryMethod,
         photos: photos.map(p => ({
@@ -65,7 +67,7 @@ const PrintCheckoutModal = ({ isOpen, onClose, photos, totalAmount }) => {
         }
       };
 
-      const response = await axios.post('http://localhost:5000/api/print-orders', payload);
+      const response = await axios.post('/api/print-orders', payload);
       const newOrderId = response.data.data.orderId;
       setOrderId(newOrderId);
 
@@ -80,6 +82,12 @@ const PrintCheckoutModal = ({ isOpen, onClose, photos, totalAmount }) => {
       message += `Total Prints: ${totalPrints}\n`;
       message += `Total Amount: ₹${totalAmount}\n\n`;
       
+      if (formData.driveLink) {
+        message += `🔗 *Download Link:* \n${formData.driveLink}\n\n`;
+      } else {
+        message += `⚠️ *PLEASE ATTACH YOUR PHOTOS / ZIP FILE TO THIS CHAT NOW!* ⚠️\n\n`;
+      }
+      
       message += `*Order Details:*\n`;
       photos.forEach((p, idx) => {
         message += `\nPhoto ${idx + 1}\n`;
@@ -89,7 +97,7 @@ const PrintCheckoutModal = ({ isOpen, onClose, photos, totalAmount }) => {
       });
 
       message += `\n\n*Secure Admin Access to Download Photos:*\n`;
-      message += `http://localhost:5173/admin/print-orders\n`; // Adjust domain in prod
+      message += `${window.location.origin}/admin/print-orders\n`;
 
       const encodedMessage = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/${businessNumber}?text=${encodedMessage}`;
@@ -219,6 +227,12 @@ const PrintCheckoutModal = ({ isOpen, onClose, photos, totalAmount }) => {
                    </div>
                  )}
 
+                {/* Cloud Link */}
+                <div>
+                  <label className="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">Google Drive / WeTransfer Link (Optional)</label>
+                  <input type="text" placeholder="Paste link to your ZIP file or High-Res photos..." value={formData.driveLink} onChange={e => setFormData({...formData, driveLink: e.target.value})} className="w-full bg-black/50 border border-white/10 p-3 text-sm text-white focus:border-secondary focus:outline-none" />
+                </div>
+
                 {/* Instructions */}
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">Special Instructions (Optional)</label>
@@ -236,7 +250,7 @@ const PrintCheckoutModal = ({ isOpen, onClose, photos, totalAmount }) => {
                     {isSubmitting ? 'Processing Order...' : 'Send Order on WhatsApp'}
                   </button>
                   <p className="text-center text-[10px] text-gray-500 uppercase tracking-widest mt-4">
-                    Your photos will be securely uploaded and attached to the order.
+                    You will be prompted to attach your files directly in WhatsApp.
                   </p>
                 </div>
               </form>
